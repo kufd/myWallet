@@ -85,7 +85,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  caching     enable or disable internal caching                 FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/test/myWallet/',
+	'base_url'   => (Kohana::$environment != Kohana::PRODUCTION) ? '/test/myWallet/' : '/myWallet/',
 ));
 
 /**

@@ -20,8 +20,8 @@ return array
 			 */
 			'hostname'   => 'localhost',
 			'database'   => 'myWallet',
-			'username'   => 'root',
-			'password'   => '',
+			'username'   => 'mywallet',
+			'password'   => 'xK7YfmKKTXEzpfJ6',
 			'persistent' => FALSE,
 		),
 		'table_prefix' => '',
