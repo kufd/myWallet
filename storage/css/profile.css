@@ -1,0 +1,30 @@
+div.profile
+{
+	height:500px;
+	padding-left:50px;
+}
+div.profile h3
+{
+	margin-bottom:20px;
+}
+div.profile table
+{
+	border-collapse: collapse;
+}
+div.profile table td
+{
+	padding-bottom:10px;
+	padding-right:10px;
+}
+div.profile table td.submit
+{
+	text-align:right;
+}
+div.profile table td input[type=text]
+{
+	width:200px;
+}
+div.profile table td input[name=login]
+{
+	background-color: #ccc;
+}

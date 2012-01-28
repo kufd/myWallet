@@ -1,0 +1,32 @@
+div.formAddSpending
+{
+}
+
+div.formAddSpending table
+{
+	border-collapse:0px;
+	margin-top:10px;
+}
+
+div.formAddSpending table td
+{
+	padding-bottom:5px;
+}
+
+div.formAddSpending table td.name
+{
+	width:70px;
+}
+div.formAddSpending table td.value
+{
+	width:210px;
+}
+div.formAddSpending table td.value input,
+div.formAddSpending table td.value select
+{
+	width:210px;
+}
+div.formAddSpending table td.value input[name=dateFront]
+{
+	cursor:pointer;
+}

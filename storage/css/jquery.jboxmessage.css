@@ -1,0 +1,24 @@
+.boxmessage
+{
+	position: fixed;
+	left: 0; right: 0;
+
+	background: #333;
+	border-bottom: 1px solid #666;
+	padding: 25px;
+	cursor: pointer;
+
+	color: #999; font-family: Tahoma; font-size: 13px;	
+}
+
+.boxmessage h3
+{
+	color: #fff; font-size: 17px; font-weight: normal;
+	margin: 0 0 10px 0; padding: 0;
+}
+
+.error
+{
+	background: rgba(125, 0, 0, .5);
+	color: #fff;
+}

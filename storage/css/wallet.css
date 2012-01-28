@@ -1,0 +1,151 @@
+div.wallet
+{
+}
+#dialogDeleteSpending
+{
+	display:none;
+	background-image: url(../../storage/images/icons/48/warning.png);
+	background-repeat: no-repeat;
+	background-position: 8px;
+	padding-left:64px;
+	line-height:64px;
+	font-size:24px;
+	text-align:center;
+}
+div.wallet table
+{
+	border-collapse: collapse;
+	width:620px;
+	float:left;
+}
+div.wallet table td
+{
+	padding:5px;
+	border-bottom:1px solid #dedede;
+	color:black;
+	font-size:13px;
+}
+div.wallet table tr.sum td
+{
+	padding-top:15px;
+	font-weight:bold;
+	border:none;
+}
+div.wallet table th
+{
+	text-align:left;
+	padding-bottom:10px;
+	padding-left:5px;
+}
+
+div.wallet table th.spendingName
+{
+	width:200px;
+}
+div.wallet table th.amount
+{
+	width:150px;
+}
+div.wallet table th.date
+{
+	width:150px;
+}
+div.wallet table th.actions
+{
+	width:100px;
+}
+div.wallet table th div
+{
+	cursor:pointer;
+}
+div.wallet table th div.asc
+{
+	background-image: url(../../storage/images/icons/20/asc.png);
+	background-position: right;
+	padding-right:20px;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+div.wallet table th div.desc
+{
+	background-image: url(../../storage/images/icons/20/desc.png);
+	background-position: right;
+	padding-right:20px;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
+div.wallet table td.spendingName
+{
+}
+div.wallet table td.amount
+{
+}
+div.wallet table td.date
+{
+}
+div.wallet table td.actions
+{
+}
+div.wallet table td.actions div.edit
+{
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	background-image: url(../../storage/images/icons/16/edit.png);
+	float:left; 
+}
+div.wallet table td.actions div.delete
+{
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	background-image: url(../../storage/images/icons/16/delete.png);
+	float:left;
+	margin-left:10px;
+}
+
+
+div.wallet div.options
+{
+	width:250px;
+	float:right;
+}
+div.wallet div.options h5
+{
+	font-size: 18px;
+	margin-bottom:10px;
+	padding-bottom:5px;
+	font-weight:bold;
+	border-bottom:1px solid #dedede;
+}
+div.wallet div.options h6
+{
+	font-size: 14px;
+	margin-bottom:5px;
+	color:black;
+}
+div.wallet div.options input[name=dateStartFront]
+{
+	width:115px;
+	cursor:pointer;
+}
+div.wallet div.options input[name=dateEndFront]
+{
+	width:115px;
+	cursor:pointer;
+}
+div.wallet div.options button.addSpending
+{
+	margin-bottom:20px;
+	height:30px;
+	font-size:15px;
+	width:250px;
+	cursor:pointer;
+}
+
+#ui-datepicker-div
+{
+	display:none;
+}
+
