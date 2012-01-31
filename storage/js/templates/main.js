@@ -22,7 +22,7 @@ main.refreshLoginLogoutLinks = function()
  */
 main.refreshProfileWalletLinks = function()
 {
-	if(db.logged())
+	if(wallet.isRendered())
 	{
 		$('a.profile', main.template()).show();
 		$('a.wallet', main.template()).hide();
@@ -63,6 +63,8 @@ main.afterRender(main.refreshLoginLogoutLinks);
 main.event('a.logout', 'click', main.logout);
 main.event('a.login', 'click', login.render);
 main.event('a.profile', 'click', profile.render);
+main.event('a.wallet', 'click', wallet.render);
 
 
 db.setEvent('changeLogged', main.refreshLoginLogoutLinks);
+

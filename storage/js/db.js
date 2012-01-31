@@ -231,10 +231,15 @@ db.profile = function(name, value)
 
 /**
  * Method updates user`s profile
+ * Method returns false if error happen or true otherwise
+ * 
  * @param data
+ * @return bool
  */
 db.updateProfile = function(data)
 {
+	var result = true;
+	
 	$.ajax({
 				url: "saveProfile",
 				type: "POST",
@@ -251,8 +256,14 @@ db.updateProfile = function(data)
 							db.profile(k, data[k]);
 						}
 					}
+					else
+					{
+						result = false;
+					}
 				}
 	});
+	
+	return result;
 }
 
 

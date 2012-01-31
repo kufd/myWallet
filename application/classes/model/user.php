@@ -32,27 +32,9 @@ Class Model_User extends Model_A1_User_ORM
 			'login' => array(
          		array('strtolower'),
 			),
-			/*
-			'password' => array(
-				array('md5'),
-			),
-			*/
 		);
 	}
 	
-	/**
-	 * 
-	 * Methos saves data
-	 */
-	/*
-	public function save()
-	{
-		$this->password = md5($this->password);
-		$this->login = strtolower($this->login);
-		
-		parent::save();
-	}
-	*/
 
 	/**
 	 * 
@@ -67,5 +49,30 @@ Class Model_User extends Model_A1_User_ORM
         	->where('login', '=', $login)
         	->execute()
         	->get('total');
+	}
+	
+	/**
+	 * Method cheks login and password
+	 * 
+	 * @param string $password
+	 * 
+	 * @return bool
+	 */
+	public static function isMatchedPasswordForLoggedUser($password)
+	{
+     	return (A1::instance()->logged_in()) ? A1::instance()->check_password(A1::instance()->get_user(), $password) : false;
+	}
+	
+	/**
+	 * method saves user's profile
+	 * 
+	 * @param array $params
+	 */
+	public function saveProfile($params)
+	{
+		isset($params['newPassword']) && $params['newPassword'] && $this->password = $params['newPassword'];
+		isset($params['name']) && $this->name = $params['name'];
+		isset($params['email']) && $this->email = $params['email'];
+		$this->save();
 	}
 }

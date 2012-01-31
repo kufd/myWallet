@@ -29,7 +29,8 @@ div.login table td a.register
 {
 	float:right;
 }
-div.login table td input[type=text]
+div.login table td input[type=text],
+div.login table td input[type=password]
 {
 	width:200px;
 }

@@ -52,9 +52,10 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <script language="javascript" src="storage/js/templates/login.js"></script>
 <script language="javascript" src="storage/js/templates/formAddSpending.js"></script>
 <script language="javascript" src="storage/js/templates/profile.js"></script>
-<script language="javascript" src="storage/js/templates/main.js"></script>
 <script language="javascript" src="storage/js/templates/spendings.js"></script>
 <script language="javascript" src="storage/js/templates/wallet.js"></script>
+<script language="javascript" src="storage/js/templates/main.js"></script>
+
 
 <script language="javascript" src="storage/js/main.js"></script>
 </head>

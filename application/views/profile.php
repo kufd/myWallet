@@ -16,12 +16,16 @@
 		<td><input type="text" name="email" value="%%email%%"/></td>
 	</tr>
 	<tr>
-		<td>Пароль</td>
-		<td><input type="text" name="password"/></td>
+		<td class="pt-15">Новий пароль</td>
+		<td class="pt-15"><input type="password" name="newPassword"/></td>
 	</tr>
 	<tr>
-		<td>Повтор пароля</td>
-		<td><input type="text" name="rePassword"/></td>
+		<td>Повтор нового паролю</td>
+		<td><input type="password" name="reNewPassword"/></td>
+	</tr>
+	<tr>
+		<td class="pt-15">Поточний пароль</td>
+		<td class="pt-15"><input type="password" name="password"/></td>
 	</tr>
 	<tr>
 		<td colspan="2" class="submit">

@@ -4,17 +4,30 @@
 function template(_selector, _template)
 {
 	/*
-	 * template
+	 * Autoincrement to set unique id for each template
 	 */
-	var template = _template ? _template : '';
+	if(template.autoincrement == undefined)
+	{
+		template.autoincrement = 0;
+	}
 	
 	/*
-	 * JQuery selector which sets box fro template
+	 * Template unique id
+	 */
+	var id = ++template.autoincrement; 
+	
+	/*
+	 * template
+	 */
+	var templateHtml = _template ? _template : '';
+	
+	/*
+	 * JQuery selector which sets box for template
 	 */
 	var selector = _selector;
 	
 	/*
-	 * Object with variables fro template
+	 * Object with variables for template
 	 */
 	var view = new Object();
 	
@@ -48,6 +61,16 @@ function template(_selector, _template)
 	 */
 	var obj = null;
 	
+	/*
+	 * Object to resolve what templates are rendered on page
+	 */
+	if(template.renderedTemplates == undefined)
+	{
+		template.renderedTemplates = new Object();
+	}
+	
+	
+	
 	/**
 	 * method sets variable for template
 	 */
@@ -80,6 +103,9 @@ function template(_selector, _template)
 	 * method renders template and put it into setted box and return template as JQuery object
 	 */
 	this.render = function(){
+
+		template.renderedTemplates[selector] = id;
+		
 		preRender();
 		
 		var html = '';
@@ -90,13 +116,13 @@ function template(_selector, _template)
 		var subTemplates = new Object(); 
 		
 		//set variables
-		while((loc2=template.indexOf('%%', loc1))!=-1)
+		while((loc2=templateHtml.indexOf('%%', loc1))!=-1)
 		{
-			html += template.substring(loc1, loc2);
+			html += templateHtml.substring(loc1, loc2);
 			loc1=loc2=loc2+2;
-			if((loc3=template.indexOf('%%', loc2))!=-1)
+			if((loc3=templateHtml.indexOf('%%', loc2))!=-1)
 			{
-				var variable = template.substring(loc2, loc3);
+				var variable = templateHtml.substring(loc2, loc3);
 				if(variable.indexOf('template:')===0)
 				{
 					variable = variable.substring(9);
@@ -110,7 +136,7 @@ function template(_selector, _template)
 				loc1=loc3+2;
 			}
 		}
-		html += template.substring(loc1);
+		html += templateHtml.substring(loc1);
 
 		resObj = $(html);
 		
@@ -164,14 +190,14 @@ function template(_selector, _template)
 	};
 	
 	/**
-	 * method which is called before rendering templatre
+	 * method which is called before rendering template
 	 */
 	this.preRender = function(func){
 		preRender = func;
 	};
 	
 	/**
-	 * method which is called after rendering templatre
+	 * method which is called after rendering template
 	 */
 	this.afterRender = function(func){
 		afterRender = func;
@@ -191,7 +217,7 @@ function template(_selector, _template)
 	 */
 	this.setTemplate = function(_template)
 	{
-		template = _template;
+		templateHtml = _template;
 	}
 	
 	/**
@@ -206,5 +232,13 @@ function template(_selector, _template)
 		
 		return typeInsert;
 	}
-		
+	
+	/**
+	 * Method returns true if template is rendered on page
+	 */
+	this.isRendered = function()
+	{
+		return template.renderedTemplates[selector] && template.renderedTemplates[selector] == id;
+	}
+	
 }

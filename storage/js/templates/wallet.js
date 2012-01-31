@@ -85,6 +85,7 @@ wallet.afterRender(function(){
 wallet.preRender(function(){
 	wallet.set('options.dateStartFront', $.datepicker.formatDate('d MM yy', new Date(wallet.get('options.dateStart'))));
 	wallet.set('options.dateEndFront', $.datepicker.formatDate('d MM yy', new Date(wallet.get('options.dateEnd'))));
+	main.refreshProfileWalletLinks();
 });
 
 wallet.set('options.dateStart', $.datepicker.formatDate('yy-mm-01', new Date()));

@@ -82,6 +82,20 @@ img
 	height:0px;
 }
 
+/*margin, padding*/
+.pt-5
+{
+	padding-top:5px;
+}
+.pt-10
+{
+	padding-top:10px;
+}
+.pt-15
+{
+	padding-top:15px;
+}
+
 
 /* Form */
 
@@ -97,7 +111,8 @@ input, textarea, select
 	font-size: 13px;
 	color: #333333;
 }
-input[type=text]
+input[type=text],
+input[type=password]
 {
 	border:1px solid #777;
 	padding:2px 0px;

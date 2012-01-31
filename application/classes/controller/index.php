@@ -129,5 +129,20 @@ class Controller_Index extends Controller
 	
 	public function action_saveProfile()
 	{
+		$result = array();
+		
+		$errors = Model_Validator::formProfile($this->request->post('params'));
+		
+		if($errors === true)
+		{
+			$params = $this->request->post('params');
+			A1::instance()->get_user()->saveProfile($params);
+		}
+		else 
+		{
+			$result['errors'] = $errors;
+		}
+
+		$this->response->body(json_encode($result));
 	}
 }

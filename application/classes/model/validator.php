@@ -41,4 +41,22 @@ class Model_Validator
             		
 		return $params->check() ? true : $params->errors('forms/addSpending');
 	}
+	
+	
+	public static function formProfile($params)
+	{
+		$params = 	Validation::factory($params)
+ 
+            		->rule('password', 'not_empty')
+            		->rule('password', array(new Model_User(), 'isMatchedPasswordForLoggedUser'))
+            		
+            		->rule('reNewPassword',  'matches', array(':validation', ':field', 'newPassword'))
+            		
+            		->rule('name', 'not_empty')
+            		
+            		->rule('email', 'not_empty')
+            		->rule('email', 'email');
+            		
+		return $params->check() ? true : $params->errors('forms/profile');
+	}
 }
