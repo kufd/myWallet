@@ -1,38 +1,48 @@
 var main = new template('body');
 
+//set type insert
+main.typeInsert('add');
+
 /**
- * Method hide or show login and logout links in main template
+ * Method hide or show links in main template
  */
-main.refreshLoginLogoutLinks = function()
+main.refreshTopMenuLinks = function()
 {
 	if(db.logged())
 	{
 		$('a.logout', main.template()).show();
 		$('a.login', main.template()).hide();
+		
+		if(wallet.isRendered())
+		{
+			$('a.profile', main.template()).show();
+			$('a.wallet', main.template()).hide();
+		}
+		else
+		{
+			$('a.wallet', main.template()).show();
+			$('a.profile', main.template()).hide();
+		}
 	}
 	else
 	{
-		$('a.login', main.template()).show();
+		if(!login.isRendered())
+		{
+			$('a.login', main.template()).show();
+		}
+		else
+		{
+			$('a.login', main.template()).hide();
+		}
 		$('a.logout', main.template()).hide();
-	}
-}
-
-/**
- * Method hide or show profile and wallet links in main template
- */
-main.refreshProfileWalletLinks = function()
-{
-	if(wallet.isRendered())
-	{
-		$('a.profile', main.template()).show();
+		
 		$('a.wallet', main.template()).hide();
-	}
-	else
-	{
-		$('a.wallet', main.template()).show();
 		$('a.profile', main.template()).hide();
 	}
+	
+	
 }
+
 
 /**
  * Method logouts user
@@ -59,12 +69,12 @@ main.logout = function()
 		);
 }
 
-main.afterRender(main.refreshLoginLogoutLinks);
+main.addPreRenderStatic(main.refreshTopMenuLinks);
+
 main.event('a.logout', 'click', main.logout);
 main.event('a.login', 'click', login.render);
 main.event('a.profile', 'click', profile.render);
 main.event('a.wallet', 'click', wallet.render);
 
-
-db.setEvent('changeLogged', main.refreshLoginLogoutLinks);
+db.setEvent('changeLogged', main.refreshTopMenuLinks);
 

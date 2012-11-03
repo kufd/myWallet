@@ -7,7 +7,7 @@ class Model_Validator
 					
 					->rule('login', 'not_empty')
 					->rule('login', 'min_length', array(':value', 4))
-            		->rule('login', 'regex', array(':value', '/^[a-z_.]++$/iD'))
+            		->rule('login', 'regex', array(':value', '/^[a-z_.0-9]++$/iD'))
             		->rule('login', array(new Model_User(), 'isLoginUnique'))
  
             		->rule('password', 'not_empty')
@@ -49,13 +49,14 @@ class Model_Validator
  
             		->rule('password', 'not_empty')
             		->rule('password', array(new Model_User(), 'isMatchedPasswordForLoggedUser'))
-            		
-            		->rule('reNewPassword',  'matches', array(':validation', ':field', 'newPassword'))
-            		
+       
+       				->rule('reNewPassword',  'matches', array(':validation', ':field', 'newPassword'))
+       				     		            		
             		->rule('name', 'not_empty')
             		
             		->rule('email', 'not_empty')
             		->rule('email', 'email');
+       
             		
 		return $params->check() ? true : $params->errors('forms/profile');
 	}

@@ -42,6 +42,14 @@ function template(_selector, _template)
 	var preRender = function(){};
 	
 	/*
+	 * Array of functions which are called before rendering for all templates
+	 */
+	if(template.preRenderStatic == undefined)
+	{
+		template.preRenderStatic = [];
+	}
+	
+	/*
 	 * Function which is called after rendering
 	 */
 	var afterRender = function(){};
@@ -69,19 +77,42 @@ function template(_selector, _template)
 		template.renderedTemplates = new Object();
 	}
 	
+	/**
+	 * Method add function to array preRenderStatic
+	 */
+	this.addPreRenderStatic = function(func)
+	{
+		template.preRenderStatic.push(func);
+	}
+	
+	/**
+	 * Method call all functions from array preRenderStatic
+	 */
+	this.callPreRenderStatic = function()
+	{
+		preRender();
+
+		for(var k in template.preRenderStatic)
+		{
+			template.preRenderStatic[k].call(this);
+		}
+	}
+	
 	
 	
 	/**
 	 * method sets variable for template
 	 */
-	this.set = function(name, value){
+	this.set = function(name, value)
+	{
 		view[name]=value;
 	};
 	
 	/**
 	 * method unsets variable for template or all variables
 	 */
-	this.unset = function(name){
+	this.unset = function(name)
+	{
 		if(name)
 		{
 			delete view[name];
@@ -95,18 +126,20 @@ function template(_selector, _template)
 	/**
 	 * method gets variable for template
 	 */
-	this.get = function(name){
+	this.get = function(name)
+	{
 		return view[name] ? view[name] : '';
 	};
 	
 	/**
 	 * method renders template and put it into setted box and return template as JQuery object
 	 */
-	this.render = function(){
+	this.render = function()
+	{
 
 		template.renderedTemplates[selector] = id;
 		
-		preRender();
+		self.callPreRenderStatic();
 		
 		var html = '';
 		var loc1 = 0;
@@ -239,6 +272,16 @@ function template(_selector, _template)
 	this.isRendered = function()
 	{
 		return template.renderedTemplates[selector] && template.renderedTemplates[selector] == id;
+	}
+	
+	/**
+	 * Method returns JQuery collection by selector from current template
+	 * 
+	 * @returns JQuery object
+	 */
+	this.$ = function(selector)
+	{
+		return $(selector, obj);
 	}
 	
 }

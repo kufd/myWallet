@@ -6,12 +6,12 @@ var profile = new template('#page');
 profile.saveProfile = function()
 {
 	var params = new Object();
-	params['login'] = $('input[name=login]', register.template()).val();
-	params['name'] = $('input[name=name]', register.template()).val();
-	params['newPassword'] = $('input[name=newPassword]', register.template()).val();
-	params['reNewPassword'] = $('input[name=reNewPassword]', register.template()).val();
-	params['password'] = $('input[name=password]', register.template()).val();
-	params['email'] = $('input[name=email]', register.template()).val();
+	params['login'] = profile.$('input[name=login]').val();
+	params['name'] = profile.$('input[name=name]').val();
+	params['newPassword'] = profile.$('input[name=newPassword]').val();
+	params['reNewPassword'] = profile.$('input[name=reNewPassword]').val();
+	params['password'] = profile.$('input[name=password]').val();
+	params['email'] = profile.$('input[name=email]').val();
 		
 	if(db.updateProfile(params))
 	{
@@ -26,7 +26,6 @@ profile.preRender(function(){
 	profile.set('login', db.profile('login'));
 	profile.set('name', db.profile('name'));
 	profile.set('email', db.profile('email'));
-	main.refreshProfileWalletLinks();
 });
 
 profile.event('table td.submit input', 'click', profile.saveProfile);

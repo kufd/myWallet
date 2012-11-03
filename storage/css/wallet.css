@@ -17,6 +17,15 @@ div.wallet table
 	border-collapse: collapse;
 	width:620px;
 	float:left;
+
+}
+div.wallet table tr:hover td
+{
+	background-color:#F7F0DC;
+}
+div.wallet table tr.sum:hover td
+{
+	background-color:white;
 }
 div.wallet table td
 {

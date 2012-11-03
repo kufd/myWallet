@@ -90,7 +90,7 @@ formAddSpending.showSpendingNameField = function(type)
 	
 	
 	$("*[name=spendingName]", formAddSpending.template()).after(obj).remove();
-	$("*[name=spendingName]", formAddSpending.template()).focus();
+	//$("*[name=spendingName]", formAddSpending.template()).focus();
 }
 
 formAddSpending.preRender(function(){

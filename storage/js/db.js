@@ -225,6 +225,10 @@ db.profile = function(name, value)
 	}
 	else
 	{
+		if(value)
+		{
+			db.data.profile[name] = value;
+		}
 		return db.data.profile[name];
 	}
 }
@@ -247,9 +251,9 @@ db.updateProfile = function(data)
 				dataType: "json",
 				async: false,
 				global: false,
-				success: function(data)
+				success: function(response)
 				{
-					if(!core.ajaxErrors(data))
+					if(!core.ajaxErrors(response))
 					{
 						for(var k in data)
 						{

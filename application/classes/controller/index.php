@@ -39,13 +39,14 @@ class Controller_Index extends Controller
 		$result['templates']['formAddSpending'] = View::factory('formAddSpending')->__toString();
 		$result['templates']['spendings'] = View::factory('spendings')->__toString();
 		$result['templates']['profile'] = View::factory('profile')->__toString();
+		$result['templates']['forgotPassword'] = View::factory('forgotPassword')->__toString();
 		
 		$result['logged'] = A1::instance()->logged_in();
 		
 		$result['groupBySpendings'] = new stdClass();
 		
 		$result['sorting']['field'] = 'date';
-		$result['sorting']['direction'] = 'asc';
+		$result['sorting']['direction'] = 'desc';
 		
 		$result = array_merge($result, $this->_authExportData());
 		

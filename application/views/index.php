@@ -14,6 +14,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/storage/images/favicon.ico">
 <title>Мій гаманець</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -21,6 +22,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <link href="storage/css/jquery.ajaxLoader.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/jquery.jboxmessage.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/register.css" rel="stylesheet" type="text/css" />
+<link href="storage/css/forgotPassword.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/login.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/profile.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/wallet.css" rel="stylesheet" type="text/css" />
@@ -49,6 +51,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <script language="javascript" src="storage/js/db.js"></script>
 
 <script language="javascript" src="storage/js/templates/register.js"></script>
+<script language="javascript" src="storage/js/templates/forgotPassword.js"></script>
 <script language="javascript" src="storage/js/templates/login.js"></script>
 <script language="javascript" src="storage/js/templates/formAddSpending.js"></script>
 <script language="javascript" src="storage/js/templates/profile.js"></script>

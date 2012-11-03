@@ -31,7 +31,9 @@ login.login = function()
 	);
 }
 
+
 login.event('table td a.register', 'click', register.render);
+login.event('table td a.forgot', 'click', forgotPassword.render);
 login.event('table td.submit input', 'click', login.login);
 login.event('table', 'keyup', function(event){
 	if (event.which == 13) 

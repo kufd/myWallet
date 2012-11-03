@@ -110,13 +110,14 @@ Cookie::$salt = 'lfsk87NlKjkfdsl4rkfldssx';
 Kohana::modules(array(
 	// 'auth'       => MODPATH.'auth',       // Basic authentication
 	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
-	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
-	'database'   => MODPATH.'database',   // Database access
+	'codebench'		=> MODPATH.'codebench',  // Benchmarking tool
+	'database'		=> MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
-	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+	'orm'			=> MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
-	'a1'       => MODPATH.'a1',       // Basic authentication
+	'a1'			=> MODPATH.'a1',       // Basic authentication
+	'debug_toolbar'	=> MODPATH.'debug_toolbar',       // Kohana Debug Toolbar
 	));
 
 /**
