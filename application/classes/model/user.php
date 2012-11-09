@@ -75,4 +75,54 @@ Class Model_User extends Model_A1_User_ORM
 		isset($params['email']) && $this->email = $params['email'];
 		$this->save();
 	}
+	
+	/**
+	 * Methot generates password
+	 * @param int $length
+	 * @return string
+	 */
+	public static function generatePassword($length = 8) 
+	{
+		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+';
+    	return substr(str_shuffle($chars), 0, $length);
+	}
+	
+	/**
+	 * Method generate and set password for user
+	 * 
+	 * @param int $userId
+	 * @return string
+	 */
+	public function setGeneratedPassword()
+	{
+		$password = self::generatePassword();
+		
+		$this->saveProfile(array('newPassword' => $password));
+		
+		return $password;
+	}
+	
+	/**
+	 * @param string $login
+	 * @return Model_User
+	 */
+	public static function getByLogin($login)
+	{
+		$user = new self();
+		$user->where('login', '=', $login);
+    	$user->find();
+    
+    	return $user->loaded() ? $user : null;
+	}
+	
+	/**
+	 * 
+	 * Check if user already exists in the database
+	 * @param string $login
+	 * @return bool
+	 */
+	public static function isExistsUser($login)
+	{
+     	return !self::isLoginUnique($login);
+	}
 }

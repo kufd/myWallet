@@ -85,7 +85,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  caching     enable or disable internal caching                 FALSE
  */
 Kohana::init(array(
-	'base_url'   => (Kohana::$environment != Kohana::PRODUCTION) ? '/test/myWallet/' : '/myWallet/',
+	'base_url'   => (Kohana::$environment != Kohana::PRODUCTION) ? 'http://my-wallet.com.ua.local' : 'http://my-wallet.com.ua',
 ));
 
 /**
@@ -116,8 +116,9 @@ Kohana::modules(array(
 	'orm'			=> MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
-	'a1'			=> MODPATH.'a1',       // Basic authentication
-	'debug_toolbar'	=> MODPATH.'debug_toolbar',       // Kohana Debug Toolbar
+	'a1'			=> MODPATH.'a1',         // Basic authentication
+	'debug_toolbar'	=> MODPATH.'debug_toolbar',     // Kohana Debug Toolbar
+	'swiftmailer'	=> MODPATH.'swiftmailer',       // Swift
 	));
 
 /**
@@ -173,4 +174,16 @@ Route::set('saveProfile', 'saveProfile')
 	->defaults(array(
 		'controller' => 'index',
 		'action'     => 'saveProfile',
-	));		
+	));
+	
+	
+Route::set('forgotPassword/generate', 'forgotPassword/generate/<hash>')
+	->defaults(array(
+		'controller' => 'forgotPassword',
+		'action'     => 'generate',
+	));
+Route::set('forgotPassword/sendMessage', 'forgotPassword/sendMessage')
+	->defaults(array(
+		'controller' => 'forgotPassword',
+		'action'     => 'sendMessage',
+	));			

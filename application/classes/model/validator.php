@@ -60,4 +60,15 @@ class Model_Validator
             		
 		return $params->check() ? true : $params->errors('forms/profile');
 	}
+	
+	public static function formForgotPassword($params)
+	{
+		$params = 	Validation::factory($params)
+ 
+            		->rule('login', 'not_empty')
+            		->rule('login', array(new Model_User(), 'isExistsUser'));
+       
+            		
+		return $params->check() ? true : $params->errors('forms/forgotPassword');
+	}
 }
