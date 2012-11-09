@@ -1,5 +1,5 @@
 <?php
-class Model_Notifier
+class Notifier
 {
 	private static $_instance = null;
 	private static $_mailer = null;

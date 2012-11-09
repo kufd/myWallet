@@ -15,6 +15,7 @@ Class Model_User extends Model_A1_User_ORM
 		isset($params['password']) && $user->password = $params['password'];
 		isset($params['name']) && $user->name = $params['name'];
 		isset($params['email']) && $user->email = $params['email'];
+		$user->dateRegistration = Date::get();
 		$user->save();
 	}
 	

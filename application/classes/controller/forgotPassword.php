@@ -17,7 +17,7 @@ class Controller_ForgotPassword extends Controller
 				$password = $user->setGeneratedPassword();
 				
 				//sending notify
-				Model_Notifier::sendForgotPasswordNewPassword(
+				Notifier::sendForgotPasswordNewPassword(
 					$user->email, 
 					array('password' => $password)
 				);

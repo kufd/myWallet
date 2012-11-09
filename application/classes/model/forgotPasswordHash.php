@@ -7,6 +7,9 @@ Class Model_ForgotPasswordHash extends ORM
 	
 	protected $_table_name = 'forgotPasswordHash';
 	
+	/**
+	 * @param string $login
+	 */
 	public static function addHash($login)
 	{
 		$user = Model_User::getByLogin($login);
@@ -23,12 +26,15 @@ Class Model_ForgotPasswordHash extends ORM
 		$hashObj->save();
 		
 		//sending notify
-		Model_Notifier::sendForgotPasswordInstruction(
+		Notifier::sendForgotPasswordInstruction(
 			$user->email, 
 			array('hashObj' => $hashObj)
 		);
 	}
 	
+	/**
+	 * @param string $hash
+	 */
 	public static function getByHash($hash)
 	{
 		$hashObj = new self();
