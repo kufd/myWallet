@@ -44,7 +44,7 @@ setInterval(function () {
 ***/
 jQuery.fn.ajaxLoader = function (conf) {
 	var config = jQuery.extend({
-		className:		'jquery-ajax-loader-simple', 
+		className:		'jquery-ajax-loader', 
 		fadeDuration:	500
 	}, conf);
 
@@ -56,18 +56,16 @@ jQuery.fn.ajaxLoader = function (conf) {
 			var dim = {
 				left:	offset ? offset.left : 0, 
 				top:	offset ? offset.top : 0, 
-				width:	100, 
-				height:	17
+				width:	t.outerWidth() ? t.outerWidth() : t.width(), 
+				height:	t.outerHeight() ? t.outerHeight() : t.height()
 			};
 
-			this.ajaxLoaderObject = jQuery('<div class="' + config.className + '">Loading...</div>').css({
-				position:			'absolute', 
-				left:				dim.left + 'px', 
-				top:				dim.top + 'px',
-				width:				dim.width + 'px',
-				height:				dim.height + 'px',
-				color:				'white',
-				backgroundColor:	'red'
+			this.ajaxLoaderObject = jQuery('<div class="' + config.className + '"></div>').css({
+				position:	'absolute', 
+				left:		dim.left + 'px', 
+				top:		dim.top + 'px',
+				width:		dim.width + 'px',
+				height:		dim.height + 'px'
 			}).appendTo(document.body).hide();
 		}
 

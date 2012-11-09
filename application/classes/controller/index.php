@@ -12,7 +12,7 @@ class Controller_Index extends Controller
 		
 		if(A1::instance()->logged_in())
 		{
-			$result['topSpendingNames'] = Model_SpendingName::topNames(array('userId'=>A1::instance()->get_user()->id, 'limit'=>20));
+			$result['topSpendingNames'] = Model_SpendingName::topNames(array('userId'=>A1::instance()->get_user()->id, 'limit'=>15));
 			
 			$result['profile']['id'] 		= A1::instance()->get_user()->id;
 			$result['profile']['login'] 	= A1::instance()->get_user()->login;

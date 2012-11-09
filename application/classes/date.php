@@ -1,5 +1,5 @@
 <?php
-Class Date
+Class Date extends Kohana_Date
 {
 	/**
 	 * Returns current date

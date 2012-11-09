@@ -4,7 +4,7 @@ $(document).ready(function() {
 		$(window).ajaxLoader({fadeDuration:0});
 	})
 	.ajaxStop(function() {
-		$(window).ajaxLoaderRemove({fadeDuration:0});
+		$(window).ajaxLoaderRemove({fadeDuration:200});
 	});
 
 	db.load();
