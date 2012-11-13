@@ -38,8 +38,6 @@ db.load = function()
 			url: "export",
 			type: "POST",
 			data: {},
-			dataType: "json",
-			async: false,
 			success: function(data)
 			{
 				db.data = data;
@@ -129,9 +127,6 @@ db.spendingList = function(params)
 			url: "spendingList",
 			type: "POST",
 			data: {params: params},
-			dataType: "json",
-			async: false,
-			global: false,
 			success: function(data)
 			{
 				if(!core.ajaxErrors(data))
@@ -248,9 +243,6 @@ db.updateProfile = function(data)
 				url: "saveProfile",
 				type: "POST",
 				data: {params: data},
-				dataType: "json",
-				async: false,
-				global: false,
 				success: function(response)
 				{
 					if(!core.ajaxErrors(response))

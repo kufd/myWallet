@@ -1,10 +1,15 @@
 $(document).ready(function() {
 	
-	$('body').ajaxSend(function() {
-		$(window).ajaxLoader({fadeDuration:0});
-	})
-	.ajaxStop(function() {
-		$(window).ajaxLoaderRemove({fadeDuration:200});
+	$.ajaxSetup({
+	    beforeSend: function() {
+	    	$(window).ajaxLoader({fadeDuration:0});
+	    },
+	    complete: function() {
+	    	$(window).ajaxLoaderRemove({fadeDuration:500});
+	    },
+	    async: false,
+	    dataType: "json",
+	    cache: false
 	});
 
 	db.load();
@@ -22,5 +27,6 @@ $(document).ready(function() {
 
 	main.render();
 	db.logged() ? wallet.render() : login.render();
+	
 });
 

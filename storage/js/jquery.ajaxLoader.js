@@ -51,7 +51,8 @@ jQuery.fn.ajaxLoader = function (conf) {
 	return this.each(function () {
 		var t = jQuery(this);
 
-		if (!this.ajaxLoaderObject) {
+		if (!this.ajaxLoaderObject) 
+		{
 			var offset = t.offset();
 			var dim = {
 				left:	offset ? offset.left : 0, 
@@ -61,7 +62,7 @@ jQuery.fn.ajaxLoader = function (conf) {
 			};
 
 			this.ajaxLoaderObject = jQuery('<div class="' + config.className + '">Loading...</div>').css({
-				position:			'absolute', 
+				position:			'fixed', 
 				left:				dim.left + 'px', 
 				top:				dim.top + 'px',
 				width:				dim.width + 'px',
@@ -70,20 +71,31 @@ jQuery.fn.ajaxLoader = function (conf) {
 				backgroundColor:	'red'
 			}).appendTo(document.body).hide();
 		}
-
-		this.ajaxLoaderObject.fadeIn(config.fadeDuration);
+		
+		if(!this.ajaxLoaderObject.is(':visible'))
+		{
+			this.ajaxLoaderObject.show();
+		}
 	});
 };
 
-jQuery.fn.ajaxLoaderRemove = function (conf) {
+jQuery.fn.ajaxLoaderRemove = function (conf) 
+{
 	
 	var config = jQuery.extend({
 		fadeDuration:	500
 	}, conf);
 	
 	return this.each(function () {
-		if (this.ajaxLoaderObject) {
-			this.ajaxLoaderObject.fadeOut(config.fadeDuration);
+		if (this.ajaxLoaderObject) 
+		{
+			setTimeout(
+				function()
+				{ 
+					this.ajaxLoaderObject.hide();
+				}, 
+				config.fadeDuration
+			);
 		}
 	});
 };

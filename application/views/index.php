@@ -27,22 +27,12 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <link href="storage/css/profile.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/wallet.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/formAddSpending.css" rel="stylesheet" type="text/css" />
-<link href="storage/css/jquery.ui/redmond/jquery.ui.datepicker.css" rel="stylesheet" type="text/css" />
-<link href="storage/css/jquery.ui/redmond/jquery.ui.core.css" rel="stylesheet" type="text/css" />
-<link href="storage/css/jquery.ui/redmond/jquery.ui.theme.css" rel="stylesheet" type="text/css" />
-<link href="storage/css/jquery.ui/redmond/jquery.ui.autocomplete.css" rel="stylesheet" type="text/css" />
-<link href="storage/css/jquery.ui/redmond/jquery.ui.dialog.css" rel="stylesheet" type="text/css" />
+<link href="storage/css/jquery.ui/custom-theme/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" type="text/css" />
 
 
-<script language="javascript" src="storage/js/jquery-1.6.4.js"></script>
-<script language="javascript" src="storage/js/jquery.ui/jquery.ui.core.js"></script>
-<script language="javascript" src="storage/js/jquery.ui/jquery.ui.datepicker.js"></script>
-<script language="javascript" src="storage/js/jquery.ui/i18n/jquery.ui.datepicker-uk.js"></script>
-<script language="javascript" src="storage/js/jquery.ui/jquery.ui.position.js"></script>
-<script language="javascript" src="storage/js/jquery.ui/jquery.ui.widget.js"></script>
-<script language="javascript" src="storage/js/jquery.ui/jquery.ui.autocomplete.js"></script>
-<script language="javascript" src="storage/js/jquery.ui/jquery.ui.dialog.js"></script>
-<script language="javascript" src="storage/js/jquery.ui/jquery.ui.button.js"></script>
+<script language="javascript" src="storage/js/jquery-1.8.2.min.js"></script>
+<script language="javascript" src="storage/js/jquery.ui/jquery-ui-1.9.1.custom.min.js"></script>
+<script language="javascript" src="storage/js/jquery.ui/jquery.ui.datepicker-uk.js"></script>
 <script language="javascript" src="storage/js/jquery.ajaxLoader.js"></script>
 <script language="javascript" src="storage/js/jquery.jboxmessage.js"></script>
 <script language="javascript" src="storage/js/jquery.shadow.js"></script>

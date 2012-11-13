@@ -30,9 +30,7 @@ formAddSpending.save = function()
 			url: "addSpending",
 			type: "POST",
 			data: {params: params},
-			dataType: "json",
 			async: false,
-			global: false,
 			success: function(data)
 			{
 				if(!core.ajaxErrors(data))
