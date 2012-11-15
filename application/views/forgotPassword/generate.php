@@ -28,7 +28,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <!-- start header -->
 <div id="header">
 	<div id="logo">
-		<h1><a href="#">Мій гаманець<sup></sup></a></h1>
+		<h1><a href="#"><?php echo __('Мій гаманець'); ?><sup></sup></a></h1>
 		<h2></h2>
 	</div>
 </div>

@@ -15,7 +15,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="/storage/images/favicon.ico">
-<title>Мій гаманець</title>
+<title><?php echo __('Мій гаманець'); ?></title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="storage/css/main.css" rel="stylesheet" type="text/css" />
