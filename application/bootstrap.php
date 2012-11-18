@@ -108,7 +108,7 @@ Cookie::$salt = 'lfsk87NlKjkfdsl4rkfldssx';
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-	// 'auth'       => MODPATH.'auth',       // Basic authentication
+	 //'auth'       => MODPATH.'auth',       // Basic authentication
 	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
 	'codebench'		=> MODPATH.'codebench',  // Benchmarking tool
 	'database'		=> MODPATH.'database',   // Database access
@@ -187,3 +187,22 @@ Route::set('forgotPassword/sendMessage', 'forgotPassword/sendMessage')
 		'controller' => 'forgotPassword',
 		'action'     => 'sendMessage',
 	));			
+
+	
+Route::set('controlPanel/getPhrases', 'controlPanel/getPhrases')
+	->defaults(array(
+		'controller' => 'controlPanel',
+		'action'     => 'getPhrases',
+	));
+Route::set('controlPanel/savePhrase', 'controlPanel/savePhrase')
+	->defaults(array(
+		'controller' => 'controlPanel',
+		'action'     => 'savePhrase',
+	));
+Route::set('controlPanel/removePhrase', 'controlPanel/removePhrase')
+	->defaults(array(
+		'controller' => 'controlPanel',
+		'action'     => 'removePhrase',
+	));
+	
+	

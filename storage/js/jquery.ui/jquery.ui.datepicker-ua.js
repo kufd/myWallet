@@ -1,7 +1,7 @@
 /* Ukrainian (UTF-8) initialisation for the jQuery UI date picker plugin. */
 /* Written by Maxim Drogobitskiy (maxdao@gmail.com). */
 jQuery(function($){
-	$.datepicker.regional['uk'] = {
+	$.datepicker.regional['ua'] = {
 		closeText: 'Закрити',
 		prevText: '&#x3c;',
 		nextText: '&#x3e;',
@@ -23,5 +23,4 @@ jQuery(function($){
 		isRTL: false,
 		showMonthAfterYear: false,
 		yearSuffix: ''};
-	$.datepicker.setDefaults($.datepicker.regional['uk']);
 });

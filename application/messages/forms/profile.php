@@ -18,4 +18,7 @@ return array(
 		'email'	 		=> 'Не правильний email',
 		'default' 		=> 'Не правильний email',
 	),
+	'lang'			=> array(
+		'default' 		=> __('Не правильна мова'),
+	)
 );

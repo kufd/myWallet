@@ -2,7 +2,6 @@
 
 class Controller_Index extends Controller 
 {
-
 	/**
 	 * Method returns export data for authentificated user 
 	 */
@@ -18,9 +17,26 @@ class Controller_Index extends Controller
 			$result['profile']['login'] 	= A1::instance()->get_user()->login;
 			$result['profile']['name'] 		= A1::instance()->get_user()->name;
 			$result['profile']['email'] 	= A1::instance()->get_user()->email;
+			$result['profile']['lang'] 		= A1::instance()->get_user()->lang;
+			
+			$result['acl']['control panel']	= A1::instance()->get_user()->isAllowed('control panel');
 		}
 		
 		return $result;
+	}
+	
+	/**
+	 * @return array
+	 */
+	private function _getTranslations()
+	{
+		return array(
+			'Відмінити' => __('Відмінити'),
+			'Видалити' => __('Видалити'),
+			'інша витрата' => __('інша витрата'),
+			'Загальна сума' => __('Загальна сума'),
+			'Зберегти' => __('Зберегти'),
+		);
 	}
 	
 	public function action_index()
@@ -41,6 +57,8 @@ class Controller_Index extends Controller
 		$result['templates']['profile'] = View::factory('profile')->__toString();
 		$result['templates']['forgotPassword'] = View::factory('forgotPassword')->__toString();
 		
+		$result['templates']['controlPanel/translate'] = View::factory('controlPanel/translate')->__toString();
+		
 		$result['logged'] = A1::instance()->logged_in();
 		
 		$result['groupBySpendings'] = new stdClass();
@@ -48,7 +66,11 @@ class Controller_Index extends Controller
 		$result['sorting']['field'] = 'date';
 		$result['sorting']['direction'] = 'desc';
 		
+		$result['availableLanguages'] = I18n::getAvailableLanguages();
+		
 		$result = array_merge($result, $this->_authExportData());
+		
+		$result['translations'] = $this->_getTranslations();
 		
 		$this->response->body(json_encode($result));
 	}

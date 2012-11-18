@@ -38,8 +38,8 @@ spendings.createList = function()
 		html += 	'<td class="actions">';
 		if(v['editable'])
 		{
-			html += 		'<div class="edit" title="Редагувати">&nbsp;</div>';
-			html += 		'<div class="delete" title="Видалити">&nbsp;</div>';
+			html += 		'<div class="edit" title="'+__('Редагувати')+'">&nbsp;</div>';
+			html += 		'<div class="delete" title="'+__('Видалити')+'">&nbsp;</div>';
 		}
 		html += 	'</td>';
 		html += '</tr>';
@@ -48,7 +48,7 @@ spendings.createList = function()
 	
 	html += '<tr class="sum" data-spending-id="">';
 	html += 	'<td class="spendingName">';
-	html += 		'Сума';
+	html += 		__('Загальна сума');
 	html += 	'</td>';
 	html += 	'<td class="amount">';
 	html += 		(sum/100)+' '+db.currency();
@@ -79,17 +79,18 @@ spendings.event('div.edit', 'click', function(){
 //dialog for removing spendings
 spendings.event('div.delete', 'click', function(){ 
 	wallet.deleteSpendingId = $(this).parents('tr').attr('data-spending-id');
+
 	$('#dialogDeleteSpending').dialog
 	(
 		{ 
 			buttons:
 			[ 
 			 	{
-			 		text: "Відмінити",
+			 		text: __("Відмінити"),
 			 		click: function() { $(this).dialog("close"); }
 			 	},
 				{
-	               	text: "Видалити",
+	               	text: __("Видалити"),
 	               	click: function() { wallet.deleteSpending(wallet.deleteSpendingId); $(this).dialog("close"); }
 				}
 			],

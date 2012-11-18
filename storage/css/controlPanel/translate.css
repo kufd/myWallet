@@ -1,0 +1,117 @@
+div.controlPanel-translate
+{
+
+}
+
+#dialogDeletePhrase
+{
+	display:none;
+	background-image: url(/storage/images/icons/48/warning.png);
+	background-repeat: no-repeat;
+	background-position: 8px;
+	padding-left:64px;
+	line-height:64px;
+	font-size:24px;
+	text-align:center;
+}
+
+div.controlPanel-translate table
+{
+	width:620px;
+	float:left;
+	border-collapse: collapse;
+}
+div.controlPanel-translate table tr:hover td
+{
+	background-color:#F7F0DC;
+}
+div.controlPanel-translate table td
+{
+	padding:5px;
+	border-bottom:1px solid #dedede;
+	color:black;
+	font-size:13px;
+}
+div.controlPanel-translate table th
+{
+	text-align:left;
+	padding-bottom:10px;
+	padding-left:5px;
+}
+
+div.controlPanel-translate table th.phrase
+{
+	width:300px;
+}
+div.controlPanel-translate table th.translation
+{
+	width:300px;
+}
+div.controlPanel-translate table th.actions
+{
+	width:auto;
+}
+div.controlPanel-translate table td.pagination
+{
+	border:none;
+}
+div.controlPanel-translate table td.pagination:hover
+{
+	background-color:white;
+}
+div.controlPanel-translate table td.phrase textarea
+{
+	width:290px;
+	border: none;
+}
+div.controlPanel-translate table td.translation textarea
+{
+	width:290px;
+}
+div.controlPanel-translate table td.notFound
+{
+	padding:20px;
+	border:none;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	color:#adadad;
+	display:none;
+}
+div.controlPanel-translate table td.notFound:hover
+{
+	background-color:white;
+}
+div.controlPanel-translate table td.notFoundVisible
+{
+	display: table-cell;
+}
+div.controlPanel-translate table td.actions div.delete
+{
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	background-image: url(/storage/images/icons/16/delete.png);
+	float:left;
+}
+
+
+
+
+div.controlPanel-translate div.options
+{
+	width:250px;
+	float:right;
+}
+div.controlPanel-translate div.options h5
+{
+	font-size: 18px;
+	margin-bottom:10px;
+	padding-bottom:5px;
+	font-weight:bold;
+	border-bottom:1px solid #dedede;
+}
+div.controlPanel-translate div.options div
+{
+	padding-bottom:10px;
+}

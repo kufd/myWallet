@@ -262,5 +262,57 @@ db.updateProfile = function(data)
 	return result;
 }
 
+/**
+ * Method returns acl data
+ * 
+ * @return object;
+ */
+db.getAcl = function()
+{
+	return db.data['acl'];
+}
+
+/**
+ * Method returns available languages
+ * 
+ * @return object;
+ */
+db.getAvailableLanguages = function()
+{
+	return db.data['availableLanguages'];
+}
+
+
+/**
+ * Method returns phrases for translation
+ */
+db.getPhrasesForTranslations = function(params)
+{
+	$.ajax(
+		{
+			url: "/controlPanel/getPhrases",
+			type: "POST",
+			data: {params: params},
+			success: function(data)
+			{
+				if(!core.ajaxErrors(data))
+				{
+					db.data.phrasesForTranslations = data;
+				}
+			}
+		}
+	);
+	
+	return db.data.phrasesForTranslations;
+}
+
+/**
+ * 
+ * @param phrase
+ */
+db.getTranslation = function(phrase)
+{
+	return db.data.translations[phrase];
+}
 
 

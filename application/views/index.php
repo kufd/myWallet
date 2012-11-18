@@ -27,19 +27,27 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <link href="storage/css/profile.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/wallet.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/formAddSpending.css" rel="stylesheet" type="text/css" />
+<link href="storage/css/controlPanel/translate.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/jquery.ui/custom-theme/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" type="text/css" />
+<link href="storage/css/jquery.simplePagination.css" rel="stylesheet" type="text/css" />
 
 
 <script language="javascript" src="storage/js/jquery-1.8.2.min.js"></script>
 <script language="javascript" src="storage/js/jquery.ui/jquery-ui-1.9.1.custom.min.js"></script>
-<script language="javascript" src="storage/js/jquery.ui/jquery.ui.datepicker-uk.js"></script>
+<script language="javascript" src="storage/js/jquery.ui/jquery.ui.datepicker-ru.js"></script>
+<script language="javascript" src="storage/js/jquery.ui/jquery.ui.datepicker-ua.js"></script>
+<script language="javascript" src="storage/js/jquery.ui/jquery.ui.datepicker-en-us.js"></script>
 <script language="javascript" src="storage/js/jquery.ajaxLoader.js"></script>
 <script language="javascript" src="storage/js/jquery.jboxmessage.js"></script>
 <script language="javascript" src="storage/js/jquery.shadow.js"></script>
+<script language="javascript" src="storage/js/jquery.simplePagination.js"></script>
 <script language="javascript" src="storage/js/template/template.js"></script>
 <script language="javascript" src="storage/js/core.js"></script>
 <script language="javascript" src="storage/js/db.js"></script>
+<script language="javascript" src="storage/js/user.js"></script>
 
+<script language="javascript" src="storage/js/templates/controlPanel.js"></script>
+<script language="javascript" src="storage/js/templates/controlPanel/translate.js"></script>
 <script language="javascript" src="storage/js/templates/register.js"></script>
 <script language="javascript" src="storage/js/templates/forgotPassword.js"></script>
 <script language="javascript" src="storage/js/templates/login.js"></script>

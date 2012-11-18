@@ -55,7 +55,9 @@ class Model_Validator
             		->rule('name', 'not_empty')
             		
             		->rule('email', 'not_empty')
-            		->rule('email', 'email');
+            		->rule('email', 'email')
+            		
+            		->rule('lang', array(new I18n(), 'isAvailableLanguage'));
        
             		
 		return $params->check() ? true : $params->errors('forms/profile');

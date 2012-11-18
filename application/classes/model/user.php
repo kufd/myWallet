@@ -3,6 +3,8 @@ Class Model_User extends Model_A1_User_ORM
 {
 	protected $_table_name = 'users';
 	
+	private $_acl = null;
+	
 	/**
 	 * method creates new user
 	 * 
@@ -74,6 +76,7 @@ Class Model_User extends Model_A1_User_ORM
 		isset($params['newPassword']) && $params['newPassword'] && $this->password = $params['newPassword'];
 		isset($params['name']) && $this->name = $params['name'];
 		isset($params['email']) && $this->email = $params['email'];
+		isset($params['lang']) && $this->lang = $params['lang'];
 		$this->save();
 	}
 	
@@ -125,5 +128,20 @@ Class Model_User extends Model_A1_User_ORM
 	public static function isExistsUser($login)
 	{
      	return !self::isLoginUnique($login);
+	}
+	
+	/**
+	 * @param string $resource
+	 * @param string $action
+	 * @return bool
+	 */
+	public function isAllowed($resource, $action = 'view')
+	{
+		if(!$this->_acl)
+		{
+			$this->_acl = new Acl($this);
+		}
+		
+		return $this->_acl->isAllowed($resource, $action);
 	}
 }

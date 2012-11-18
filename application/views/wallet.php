@@ -1,16 +1,16 @@
 <div class="wallet">
-	<div id="dialogDeleteSpending" title="Увага!">
-		Видалити витрату?
+	<div id="dialogDeleteSpending" title="<?php echo __('Увага!'); ?>">
+		<?php echo __('Видалити витрату?'); ?>
 	</div>
 	
 	%%template:spendings%%
 	
 	<div class="options">
 	
-		<button class="addSpending">Додати витрату</button>
+		<button class="addSpending"><?php echo __('Додати витрату'); ?></button>
 	
-		<h5>Опції</h5>
-		<h6>Період</h6>
+		<h5><?php echo __('Опції'); ?></h5>
+		<h6><?php echo __('Період'); ?></h6>
 	    <input type="text" name="dateStartFront" readonly="readonly" value="%%options.dateStartFront%%" />
 	    <input type="hidden" name="dateStart" value="%%options.dateStart%%" />
 	    -
@@ -19,10 +19,10 @@
 	    
 	    <br/><br/><br/>
 	    
-	    <h6>Групувати по</h6>
-	    <label><input type="checkbox" name="groupByName" data-field="spendingNameId" /> назві</label>
+	    <h6><?php echo __('Групувати по'); ?></h6>
+	    <label><input type="checkbox" name="groupByName" data-field="spendingNameId" /> <?php echo __('назві'); ?></label>
 	    <br/>
-	    <label><input type="checkbox" name="groupByDate" data-field="date" /> даті</label>
+	    <label><input type="checkbox" name="groupByDate" data-field="date" /> <?php echo __('даті'); ?></label>
 	</div>
 	
 	<div class="clear"><span></span></div>

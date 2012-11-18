@@ -8,6 +8,7 @@
 		<ul>
 			<li><a href="#" class="wallet"><?php echo __('Гаманець'); ?></a></li>
 			<li><a href="#" class="profile"><?php echo __('Профіль'); ?></a></li>
+			<li><a href="#" class="controlPanel"><?php echo __('Адмін-панель'); ?></a></li>
 			<li><a href="#" class="login"><?php echo __('Вхід'); ?></a></li>
 			<li><a href="#" class="logout"><?php echo __('Вихід'); ?></a></li>
 		</ul>

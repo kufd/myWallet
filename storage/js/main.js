@@ -12,17 +12,7 @@ $(document).ready(function() {
 	    cache: false
 	});
 
-	db.load();
-
-	//set templates
-	main.setTemplate(db.template('main'));
-	login.setTemplate(db.template('login'));
-	forgotPassword.setTemplate(db.template('forgotPassword'));
-	register.setTemplate(db.template('register'));
-	wallet.setTemplate(db.template('wallet'));
-	formAddSpending.setTemplate(db.template('formAddSpending'));
-	spendings.setTemplate(db.template('spendings'));
-	profile.setTemplate(db.template('profile'));
+	core.initApplication();
 	
 
 	main.render();

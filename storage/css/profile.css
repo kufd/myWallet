@@ -21,7 +21,8 @@ div.profile table td.submit
 	text-align:right;
 }
 div.profile table td input[type=text],
-div.profile table td input[type=password]
+div.profile table td input[type=password],
+div.profile table td select
 {
 	width:200px;
 }

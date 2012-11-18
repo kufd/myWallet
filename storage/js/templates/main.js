@@ -41,6 +41,15 @@ main.refreshTopMenuLinks = function()
 	}
 	
 	
+	if(!user.isControlPanelAllowed() || controlPanel.isRendered())
+	{
+		main.$('a.controlPanel').hide();
+	}
+	else
+	{
+		main.$('a.controlPanel').show();
+	}
+	
 }
 
 
@@ -71,10 +80,11 @@ main.logout = function()
 
 main.addPreRenderStatic(main.refreshTopMenuLinks);
 
-main.event('a.logout', 'click', main.logout);
-main.event('a.login', 'click', login.render);
-main.event('a.profile', 'click', profile.render);
-main.event('a.wallet', 'click', wallet.render);
+main.event('a.logout', 'click', main.logout)
+.event('a.login', 'click', login.render)
+.event('a.profile', 'click', profile.render)
+.event('a.wallet, #logo h1 a', 'click', wallet.render)
+.event('a.controlPanel', 'click', controlPanel.translate.render);
 
 db.setEvent('changeLogged', main.refreshTopMenuLinks);
 

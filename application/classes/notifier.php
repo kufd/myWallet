@@ -59,12 +59,19 @@ class Notifier
 	 */
 	public static function sendForgotPasswordInstruction($to, $params = array())
 	{
-		$message = "Якщо ви отримали це повідомлення, але не користувались процедурою відновлення поролю то проігноруйте його.\n\n" .
-					"Для того щоб отримати пароль перейдіть за вказаною адресою:\n" .
-					URL::site("/forgotPassword/generate/{$params['hashObj']->hash}/")."\n\n" .
-					"Служба підтримки my-wallet.com.ua";
+$message = __(
+"Якщо ви отримали це повідомлення, але не користувались процедурою відновлення поролю то проігноруйте його.
+ 
+Для того щоб отримати пароль перейдіть за вказаною адресою:
+:url
+
+Служба підтримки my-wallet.com.ua", 
+	array(
+		':url' => URL::site("/forgotPassword/generate/{$params['hashObj']->hash}/")
+	)
+);
 		
-		self::getInstance()->_send('Нагадування паролю. Інструкція.', $message, $to);
+		self::getInstance()->_send(__('Нагадування паролю. Інструкція.'), $message, $to);
 	}
 	
 	/**
@@ -73,9 +80,14 @@ class Notifier
 	 */
 	public static function sendForgotPasswordNewPassword($to, $params = array())
 	{
-		$message = "Ваш новий пароль для доступу до my-wallet: {$params['password']}\n\n" .
-					"Служба підтримки my-wallet.com.ua";
+		$message = __(
+"Ваш новий пароль для доступу до my-wallet: :password
+Служба підтримки my-wallet.com.ua",
+	array(
+		':password' => $params['password']
+	)
+);
 		
-		self::getInstance()->_send('Нагадування паролю. Новий пароль.', $message, $to);
+		self::getInstance()->_send(__('Нагадування паролю. Новий пароль.'), $message, $to);
 	}
 }

@@ -220,6 +220,8 @@ function template(_selector, _template)
 		event.event = eventName;
 		event.func = func;
 		events.push(event);
+		
+		return this;
 	};
 	
 	/**

@@ -2,9 +2,14 @@ var formAddSpending = new template('body');
 formAddSpending.typeInsert('add');
 
 /**
- * Method removes form
+ * Method hide form
  */
 formAddSpending.hide = function()
+{
+	$('div.formAddSpending').hide();
+}
+
+formAddSpending.remove = function()
 {
 	$('div.formAddSpending').remove();
 }
@@ -70,7 +75,7 @@ formAddSpending.showSpendingNameField = function(type)
 			var v = topSpendingNames[k];
 			html += '<option value="'+v['id']+'" '+(spendingName && v['name']==spendingName ? 'selected="selected"' : '')+'>'+v['name']+'</option>';
 		}
-		html += 	'<option value="0">інша витрата</option>';
+		html += 	'<option value="0">'+__('інша витрата')+'</option>';
 		html += '</select>';
 	}
 	
@@ -92,7 +97,7 @@ formAddSpending.showSpendingNameField = function(type)
 }
 
 formAddSpending.preRender(function(){
-	formAddSpending.hide();
+	formAddSpending.remove();
 	if(!formAddSpending.get('dateFront'))
 	{
 		formAddSpending.set('dateFront', $.datepicker.formatDate('d MM yy', new Date()));
@@ -113,11 +118,11 @@ formAddSpending.afterRender(function(){
 		buttons:
 			[ 
 			 	{
-			 		text: "Відмінити",
+			 		text: __("Відмінити"),
 			 		click: function() { $(this).dialog("close"); }
 			 	},
 				{
-	               	text: "Зберегти",
+	               	text: __("Зберегти"),
 	               	click: function() { formAddSpending.save() ? $(this).dialog("close") : false; }
 				}
 			],
