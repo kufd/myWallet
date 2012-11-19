@@ -117,14 +117,14 @@ formAddSpending.afterRender(function(){
 	$(formAddSpending.template()).dialog({
 		buttons:
 			[ 
-			 	{
-			 		text: __("Відмінити"),
-			 		click: function() { $(this).dialog("close"); }
-			 	},
 				{
 	               	text: __("Зберегти"),
 	               	click: function() { formAddSpending.save() ? $(this).dialog("close") : false; }
-				}
+				},
+			 	{
+			 		text: __("Відмінити"),
+			 		click: function() { $(this).dialog("close"); }
+			 	}
 			],
 		close: function() { formAddSpending.hide(); },
 		modal: true,

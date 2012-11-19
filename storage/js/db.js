@@ -315,4 +315,13 @@ db.getTranslation = function(phrase)
 	return db.data.translations[phrase];
 }
 
+/**
+ * 
+ * @returns string
+ */
+db.getLang = function()
+{
+	return db.data['lang']; 
+}
+
 

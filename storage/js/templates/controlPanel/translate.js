@@ -9,7 +9,8 @@ controlPanel.translate.settings = {
 	showOnlyNotTranslated: false,
 	page: 1,
 	onPage: 10,
-	total: 0
+	total: 0,
+	searchTerm: ''
 };
 
 controlPanel.savePhrase = function(phrase, translation)
@@ -102,6 +103,7 @@ controlPanel.translate.afterRender(function(){
 	
 	controlPanel.translate.$('div.options input[name=showOnlyNotTranslated]').attr('checked', controlPanel.translate.settings.showOnlyNotTranslated);
 	controlPanel.translate.$('div.options select[name=lang]').val(controlPanel.translate.settings.lang);
+	controlPanel.translate.$('div.options input[name=searchTerm]').val(controlPanel.translate.settings.searchTerm);
 	
 	controlPanel.translate.$('table td.pagination div').pagination({
         items: controlPanel.translate.settings.total,
@@ -138,7 +140,17 @@ controlPanel.translate.event(
 	}
 )
 .event(
-	'table td textarea', 
+	'div.options input[name=searchTerm]', 
+	'blur', 
+	function()
+	{
+		controlPanel.translate.settings.searchTerm = $(this).val();
+		controlPanel.translate.settings.page = 1;
+		controlPanel.translate.reloadList();
+	}
+)
+.event(
+	'table td.translation textarea', 
 	'focus', 
 	function()
 	{
@@ -146,7 +158,7 @@ controlPanel.translate.event(
 	}
 )
 .event(
-	'table td textarea', 
+	'table td.translation textarea', 
 	'blur', 
 	function()
 	{
@@ -173,16 +185,16 @@ controlPanel.translate.event(
 				buttons:
 				[ 
 				 	{
-				 		text: "Відмінити",
-				 		click: function() { $(this).dialog("close"); }
+				 		text: __("Видалити"),
+				 		click: function() {
+				 			controlPanel.removePhrase(phraseToDelete);
+				 			$(this).dialog("close"); 
+				 		}
 				 	},
-					{
-		               	text: "Видалити",
-		               	click: function() {
-		               		controlPanel.removePhrase(phraseToDelete);
-		               		$(this).dialog("close"); 
-		               	}
-					}
+				 	{
+				 		text: __("Відмінити"),
+				 		click: function() { $(this).dialog("close"); }
+				 	}
 				],
 				modal: true,
 				width: 350

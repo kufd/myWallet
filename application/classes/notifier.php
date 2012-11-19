@@ -23,7 +23,7 @@ class Notifier
 	 * @param string $to
 	 * @param string $from
 	 */
-	private function _send($subject, $message, $to, $from = 'support@my-wallet.com.ua')
+	private function _send($subject, $message, $to, $from = 'mywallet.service@gmail.com')
 	{
 		$message = Swift_Message::newInstance()
     		->setSubject($subject)
@@ -41,12 +41,9 @@ class Notifier
 	{
 		if(is_null(self::$_mailer))
 		{
-			/*
 			$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
-  				->setUsername('myroslav.kosinski@gmail.com')
+  				->setUsername('mywallet.service@gmail.com')
   				->setPassword('paralelepiped');
-  				*/
-  			$transport = Swift_SmtpTransport::newInstance();
 			self::$_mailer = Swift_Mailer::newInstance($transport);
 		}
 		

@@ -19,7 +19,7 @@ class Controller_ControlPanel extends Controller
 		
 		$params = $this->request->post('params');
 
-		$result['phrases'] = $params['showOnlyNotTranslated'] == 'true' ? I18n::loadNotTranslated($params['lang']) : I18n::load($params['lang']);
+		$result['phrases'] = I18n::load($params['lang'], $params);
 		
 		$result['total'] = count($result['phrases']);
 		

@@ -39,7 +39,7 @@ core.setDatapickerWordForm = function(number)
  */
 core.setDatapickerLang = function()
 {
-	$.datepicker.setDefaults($.datepicker.regional[db.profile('lang')]);
+	$.datepicker.setDefaults($.datepicker.regional[db.getLang()]);
 }
 
 /**

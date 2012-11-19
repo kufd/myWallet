@@ -115,22 +115,36 @@ class I18n extends Kohana_I18n
 		
 	/**
 	 * @param string $lang
+	 * @param array $filter
 	 * @return array
 	 */
-	public static function loadNotTranslated($lang, $page=null, $onPage=null)
+	public static function load($lang, $filter = array())
 	{
-		$result = array();
+		$result = parent::load($lang);
 		
-		$phrases = self::load($lang, $page, $onPage);
-		
-		foreach($phrases as $phrase => $translation)
+		if(!empty($filter))
 		{
-			if(!$translation)
+			foreach($result as $phrase => $translation)
 			{
-				$result[$phrase] = $translation;
+				$matched = true;
+			
+				if(isset($filter['showOnlyNotTranslated']) && $filter['showOnlyNotTranslated'] == 'true' && $translation)
+				{
+					$matched = false;
+				}
+				
+				if(isset($filter['searchTerm']) && $filter['searchTerm'] && mb_stripos($phrase, $filter['searchTerm']) === false)
+				{
+					$matched = false;
+				}
+				
+				if(!$matched)
+				{
+					unset($result[$phrase]);
+				}
 			}
 		}
-		
+				
 		return $result;
 	} 
 		

@@ -67,6 +67,7 @@ class Controller_Index extends Controller
 		$result['sorting']['direction'] = 'desc';
 		
 		$result['availableLanguages'] = I18n::getAvailableLanguages();
+		$result['lang'] = I18n::lang();
 		
 		$result = array_merge($result, $this->_authExportData());
 		

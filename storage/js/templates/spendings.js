@@ -85,14 +85,14 @@ spendings.event('div.delete', 'click', function(){
 		{ 
 			buttons:
 			[ 
-			 	{
-			 		text: __("Відмінити"),
-			 		click: function() { $(this).dialog("close"); }
-			 	},
 				{
 	               	text: __("Видалити"),
 	               	click: function() { wallet.deleteSpending(wallet.deleteSpendingId); $(this).dialog("close"); }
-				}
+				},
+				{
+			 		text: __("Відмінити"),
+			 		click: function() { $(this).dialog("close"); }
+			 	}
 			],
 			modal: true,
 			width: 350

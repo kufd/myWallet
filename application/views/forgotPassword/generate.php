@@ -15,7 +15,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="/storage/images/favicon.ico">
-<title>Мій гаманець - нагадування паролю</title>
+<title><?php echo __('Мій гаманець - нагадування паролю'); ?></title>
 
 <link href="/storage/css/main.css" rel="stylesheet" type="text/css" />
 <link href="/storage/css/forgotPassword/generate.css" rel="stylesheet" type="text/css" />
@@ -40,11 +40,11 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 	<?php 
 		if($isPasswordSent)
 		{
-			echo 'Пароль був відправлений вам на пошту.';
+			echo __('Пароль був відправлений вам на пошту.');
 		} 
 		else
 		{
-			echo 'Неправильне посилання.';
+			echo __('Неправильне посилання.');
 		}
 	?>
 	</div>

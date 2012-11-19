@@ -28,6 +28,11 @@
 		<h5><?php echo __('Опції'); ?></h5>
 		
 		<div>
+			<?php echo __('Пошук'); ?>
+			<input type="text" name="searchTerm" />
+		</div>
+		
+		<div>
 			<?php echo __('Мова'); ?>&nbsp;
 			<select name="lang">
 			<?php 
