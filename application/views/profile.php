@@ -29,6 +29,10 @@
 		</td>
 	</tr>
 	<tr>
+		<td><?php echo __('Валюта'); ?></td>
+		<td><input type="text" name="currency" value="%%currency%%"/></td>
+	</tr>
+	<tr>
 		<td class="pt-15"><?php echo __('Новий пароль'); ?></td>
 		<td class="pt-15"><input type="password" name="newPassword"/></td>
 	</tr>

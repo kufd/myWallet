@@ -77,6 +77,7 @@ Class Model_User extends Model_A1_User_ORM
 		isset($params['name']) && $this->name = $params['name'];
 		isset($params['email']) && $this->email = $params['email'];
 		isset($params['lang']) && $this->lang = $params['lang'];
+		isset($params['currency']) && $this->currency = $params['currency'];
 		$this->save();
 	}
 	

@@ -25,7 +25,7 @@
 	</tr>
 	<tr>
 		<td colspan="2" class="submit">
-			<input type="button" value="<?php echo __('Зареєструватись'); ?>" />
+			<input type="button" value="<?php echo __('Зареєструватись'); ?>" <?php echo Ga::getTrackEventCode('Registration', 'Submit form'); ?> />
 		</td>
 	</tr>
 	</table>

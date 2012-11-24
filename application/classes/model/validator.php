@@ -57,7 +57,9 @@ class Model_Validator
             		->rule('email', 'not_empty')
             		->rule('email', 'email')
             		
-            		->rule('lang', array(new I18n(), 'isAvailableLanguage'));
+            		->rule('lang', array(new I18n(), 'isAvailableLanguage'))
+            		
+            		->rule('currency', 'not_empty');
        
             		
 		return $params->check() ? true : $params->errors('forms/profile');
@@ -72,5 +74,20 @@ class Model_Validator
        
             		
 		return $params->check() ? true : $params->errors('forms/forgotPassword');
+	}
+	
+	public static function formFeedback($params)
+	{
+		$params = 	Validation::factory($params)
+       				     		            		
+            		->rule('name', 'not_empty')
+            		
+            		->rule('email', 'not_empty')
+            		->rule('email', 'email')
+            		
+            		->rule('feedback', 'not_empty');
+       
+            		
+		return $params->check() ? true : $params->errors('forms/feedback');
 	}
 }

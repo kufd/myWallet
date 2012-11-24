@@ -23,7 +23,9 @@
 	<tr>
 		<td colspan="2">
 			<a href="#" class="forgot"><?php echo __('Забув пароль'); ?></a>
-			<a href="#" class="register"><?php echo __('Зареєструватись'); ?></a>
+			<a href="#" class="register" <?php echo Ga::getTrackEventCode('Registration', 'Click button register'); ?>>
+				<?php echo __('Зареєструватись'); ?>
+			</a>
 		</td>
 	</tr>
 	</table>

@@ -13,12 +13,13 @@ profile.saveProfile = function()
 	params['password'] = profile.$('input[name=password]').val();
 	params['email'] = profile.$('input[name=email]').val();
 	params['lang'] = profile.$('select[name=lang]').val();
+	params['currency'] = profile.$('input[name=currency]').val();
 	
 	var reinitializeApplication = params['lang'] != db.profile('lang');
 		
 	if(db.updateProfile(params))
 	{
-		$.jboxmessage('Профіль збережено.', '', 'top');
+		$.jboxmessage(__('Профіль збережено.'), '', 'top');
 		
 		//clear fields with passsword
 		$('input[name=newPassword], input[name=reNewPassword], input[name=password]', register.template()).val('');
@@ -39,6 +40,7 @@ profile.preRender(function(){
 	profile.set('login', db.profile('login'));
 	profile.set('name', db.profile('name'));
 	profile.set('email', db.profile('email'));
+	profile.set('currency', db.profile('currency'));
 });
 
 profile.afterRender(function(){

@@ -20,6 +20,8 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <link href="/storage/css/main.css" rel="stylesheet" type="text/css" />
 <link href="/storage/css/forgotPassword/generate.css" rel="stylesheet" type="text/css" />
 
+<?php echo Ga::getTrackingCode(); ?>
+
 </head>
 
 

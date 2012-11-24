@@ -26,6 +26,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <link href="storage/css/login.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/profile.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/wallet.css" rel="stylesheet" type="text/css" />
+<link href="storage/css/feedback.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/formAddSpending.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/controlPanel/translate.css" rel="stylesheet" type="text/css" />
 <link href="storage/css/jquery.ui/custom-theme/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" type="text/css" />
@@ -55,10 +56,14 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <script language="javascript" src="storage/js/templates/profile.js"></script>
 <script language="javascript" src="storage/js/templates/spendings.js"></script>
 <script language="javascript" src="storage/js/templates/wallet.js"></script>
+<script language="javascript" src="storage/js/templates/feedback.js"></script>
 <script language="javascript" src="storage/js/templates/main.js"></script>
 
 
 <script language="javascript" src="storage/js/main.js"></script>
+
+<?php echo Ga::getTrackingCode(); ?>
+
 </head>
 
 

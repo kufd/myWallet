@@ -1,6 +1,8 @@
 <?php
 class Notifier
 {
+	const EMAIL_SUPPORT = 'mywallet.service@gmail.com';
+	
 	private static $_instance = null;
 	private static $_mailer = null;
 	
@@ -23,7 +25,7 @@ class Notifier
 	 * @param string $to
 	 * @param string $from
 	 */
-	private function _send($subject, $message, $to, $from = 'mywallet.service@gmail.com')
+	private function _send($subject, $message, $to, $from = self::EMAIL_SUPPORT)
 	{
 		$message = Swift_Message::newInstance()
     		->setSubject($subject)
@@ -86,5 +88,18 @@ $message = __(
 );
 		
 		self::getInstance()->_send(__('Нагадування паролю. Новий пароль.'), $message, $to);
+	}
+	
+	/**
+	 * @param string $to
+	 * @param array $params
+	 */
+	public static function sendFeedback($to, $params = array())
+	{
+		$message = "Ім’я: {$params['name']}\n";
+		$message .= "email: {$params['email']}\n\n";
+		$message .= $params['feedback'];
+		
+		self::getInstance()->_send('Відгук', $message, $to);
 	}
 }

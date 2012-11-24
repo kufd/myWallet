@@ -58,6 +58,7 @@ core.initApplication = function()
 	formAddSpending.setTemplate(db.template('formAddSpending'));
 	spendings.setTemplate(db.template('spendings'));
 	profile.setTemplate(db.template('profile'));
+	feedback.setTemplate(db.template('feedback'));
 	
 	controlPanel.translate.setTemplate(db.template('controlPanel/translate'));
 	

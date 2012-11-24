@@ -1,0 +1,54 @@
+div.feedback
+{
+
+}
+
+div.feedback div.button
+{
+	position: absolute;
+	top:300px;
+	right:0px;
+}
+div.feedback div.button div.box
+{
+	position:relative;
+	left:50%;
+}
+div.feedback div.button div.box div
+{
+	writing-mode: tb-rl;
+	-o-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	background-color:#5DC784;
+	padding:0px 10px;
+	height:30px;
+	color:white;
+	font-size:16px;
+	font-weight:bold;
+	text-align:center;
+	line-height:30px;
+	cursor:pointer;
+	position:relative;
+	left:-15px;
+}
+
+div.formFeedback
+{
+	display:none;
+}
+
+div.formFeedback textarea,
+div.formFeedback input
+{
+	width:100%;
+	display:block;
+}
+div.formFeedback textarea
+{
+	height:70px;
+}
+div.formFeedback div.inputBox
+{
+	padding-bottom:5px;
+}

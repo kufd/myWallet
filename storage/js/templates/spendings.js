@@ -30,7 +30,7 @@ spendings.createList = function()
 		html += 		v['spendingName']['name'];
 		html += 	'</td>';
 		html += 	'<td class="amount">';
-		html += 		v['amount']+' '+db.currency();
+		html += 		v['amount']+' '+user.currency();
 		html += 	'</td>';
 		html += 	'<td class="date">';
 		html += 		$.datepicker.formatDate('d MM yy', new Date(v['date']));
@@ -51,7 +51,7 @@ spendings.createList = function()
 	html += 		__('Загальна сума');
 	html += 	'</td>';
 	html += 	'<td class="amount">';
-	html += 		(sum/100)+' '+db.currency();
+	html += 		(sum/100)+' '+user.currency();
 	html += 	'</td>';
 	html += 	'<td class="date">';
 	html += 	'</td>';

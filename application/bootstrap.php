@@ -175,6 +175,11 @@ Route::set('saveProfile', 'saveProfile')
 		'controller' => 'index',
 		'action'     => 'saveProfile',
 	));
+Route::set('sendFeedback', 'sendFeedback')
+	->defaults(array(
+		'controller' => 'index',
+		'action'     => 'sendFeedback',
+	));
 	
 	
 Route::set('forgotPassword/generate', 'forgotPassword/generate/<hash>')

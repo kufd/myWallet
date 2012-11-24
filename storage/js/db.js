@@ -110,14 +110,6 @@ db.merge = function (data)
 }
 
 /**
- * Method returns currency for user
- */
-db.currency = function()
-{
-	return 'грн.';
-}
-
-/**
  * Method return spending list
  */
 db.spendingList = function(params)

@@ -16,6 +16,7 @@ $(document).ready(function() {
 	
 
 	main.render();
+	
 	db.logged() ? wallet.render() : login.render();
 	
 });

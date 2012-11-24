@@ -13,11 +13,12 @@ class Controller_Index extends Controller
 		{
 			$result['topSpendingNames'] = Model_SpendingName::topNames(array('userId'=>A1::instance()->get_user()->id, 'limit'=>15));
 			
-			$result['profile']['id'] 		= A1::instance()->get_user()->id;
-			$result['profile']['login'] 	= A1::instance()->get_user()->login;
-			$result['profile']['name'] 		= A1::instance()->get_user()->name;
-			$result['profile']['email'] 	= A1::instance()->get_user()->email;
-			$result['profile']['lang'] 		= A1::instance()->get_user()->lang;
+			$result['profile']['id'] 			= A1::instance()->get_user()->id;
+			$result['profile']['login'] 		= A1::instance()->get_user()->login;
+			$result['profile']['name'] 			= A1::instance()->get_user()->name;
+			$result['profile']['email']	 		= A1::instance()->get_user()->email;
+			$result['profile']['lang'] 			= A1::instance()->get_user()->lang;
+			$result['profile']['currency'] 		= A1::instance()->get_user()->currency;
 			
 			$result['acl']['control panel']	= A1::instance()->get_user()->isAllowed('control panel');
 		}
@@ -36,6 +37,9 @@ class Controller_Index extends Controller
 			'інша витрата' => __('інша витрата'),
 			'Загальна сума' => __('Загальна сума'),
 			'Зберегти' => __('Зберегти'),
+			'Надіслати' => __('Надіслати'),
+			'Профіль збережено.' => __('Профіль збережено.'),
+			'Відгук надіслано.' => __('Відгук надіслано.'),
 		);
 	}
 	
@@ -56,6 +60,7 @@ class Controller_Index extends Controller
 		$result['templates']['spendings'] = View::factory('spendings')->__toString();
 		$result['templates']['profile'] = View::factory('profile')->__toString();
 		$result['templates']['forgotPassword'] = View::factory('forgotPassword')->__toString();
+		$result['templates']['feedback'] = View::factory('feedback')->__toString();
 		
 		$result['templates']['controlPanel/translate'] = View::factory('controlPanel/translate')->__toString();
 		
@@ -161,6 +166,26 @@ class Controller_Index extends Controller
 		{
 			$params = $this->request->post('params');
 			A1::instance()->get_user()->saveProfile($params);
+		}
+		else 
+		{
+			$result['errors'] = $errors;
+		}
+
+		$this->response->body(json_encode($result));
+	}
+	
+	public function action_sendFeedback()
+	{
+		$result = array();
+		
+		$params = $this->request->post('params');
+		
+		$errors = Model_Validator::formFeedback($params);
+		
+		if($errors === true)
+		{
+			Notifier::sendFeedback(Notifier::EMAIL_SUPPORT, $params);
 		}
 		else 
 		{

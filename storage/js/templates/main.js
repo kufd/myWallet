@@ -78,6 +78,12 @@ main.logout = function()
 		);
 }
 
+
+
+main.afterRender(function(){
+	feedback.render();
+});
+
 main.addPreRenderStatic(main.refreshTopMenuLinks);
 
 main.event('a.logout', 'click', main.logout)

@@ -127,6 +127,14 @@ textarea
 {
 	border:1px solid #777;
 }
+::-webkit-input-placeholder  
+{ 
+	color:#dadada; 
+}
+input:-moz-placeholder 
+{ 
+	color:#dadada; 
+}
 /* Header */
 
 #header 
@@ -249,11 +257,19 @@ html>body #footer
 #footer-menu {
 }
 
+#footer div.contacts
+{
+	padding-bottom:10px;
+	text-align:left;
+	font-size:11px;
+}
+
 #legal 
 {
 	clear: both;
-	font-size: 11px;
+	font-size: 9px;
 	color: #6D6D6D;
+	text-align:right;
 }
 
 #legal a 
