@@ -108,7 +108,10 @@ class Controller_Index extends Controller
 		{
 			$result['errors'][] = 'Не правильний логін або пароль';
 		}
-		
+		else
+		{
+			A1::instance()->session()->set('password', $this->request->post('password'));
+		}
 		$result = array_merge($result, $this->_authExportData());
 		
 		$this->response->body(json_encode($result));
@@ -129,6 +132,8 @@ class Controller_Index extends Controller
 		{
 			$params = $this->request->post('params');
 			$params['userId'] = A1::instance()->get_user()->id;
+			$params['password'] = A1::instance()->session()->get('password');
+			
 			Model_Spending::addSpending($params);
 		}
 		else 
@@ -148,6 +153,8 @@ class Controller_Index extends Controller
 	{
 		$params = $this->request->post('params');
 		$params['userId'] = A1::instance()->get_user()->id;
+		$params['password'] = A1::instance()->session()->get('password');
+		
 		$this->response->body(json_encode(Model_Spending::getList($params)));
 	}
 	
@@ -166,6 +173,11 @@ class Controller_Index extends Controller
 		{
 			$params = $this->request->post('params');
 			A1::instance()->get_user()->saveProfile($params);
+			
+			if(!empty($params['newPassword']))
+			{
+				A1::instance()->session()->set('password', $params['newPassword']);
+			}
 		}
 		else 
 		{

@@ -73,12 +73,28 @@ Class Model_User extends Model_A1_User_ORM
 	 */
 	public function saveProfile($params)
 	{
-		isset($params['newPassword']) && $params['newPassword'] && $this->password = $params['newPassword'];
-		isset($params['name']) && $this->name = $params['name'];
-		isset($params['email']) && $this->email = $params['email'];
-		isset($params['lang']) && $this->lang = $params['lang'];
-		isset($params['currency']) && $this->currency = $params['currency'];
-		$this->save();
+		$this->_db->begin();
+		
+		try 
+		{
+			if(isset($params['newPassword']))
+			{
+				Model_Spending::updateEncriptionKey($this->id, $params['password'], $params['newPassword']);
+			}
+		
+			isset($params['newPassword']) && $params['newPassword'] && $this->password = $params['newPassword'];
+			isset($params['name']) && $this->name = $params['name'];
+			isset($params['email']) && $this->email = $params['email'];
+			isset($params['lang']) && $this->lang = $params['lang'];
+			isset($params['currency']) && $this->currency = $params['currency'];
+			$this->save();
+		
+			$this->_db->commit();
+		}
+		catch (Exception $e)
+		{
+     		$this->_db->rollback();
+ 		}
 	}
 	
 	/**

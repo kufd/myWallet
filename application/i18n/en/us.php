@@ -96,5 +96,6 @@ Support my-wallet.com.ua
   'Environment' => '',
   'Included files' => '',
   'Loaded extensions' => '',
-  'Валюта' => '',
+  'Валюта' => 'Currency',
+  ':error [ :query ]' => '',
 );
