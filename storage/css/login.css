@@ -1,36 +1,50 @@
 div.login
 {
-	height:400px;
-	padding-left:300px;
-	padding-top:100px;
+	height:450px;
 }
-div.login h3
+
+div.login p.about
+{
+	text-align:center;
+	margin:50px 100px 0px;
+	border: 1px dashed #dadada;
+	padding:10px;
+	border-radius:5px;
+	background-color:#FDF9EE;
+}
+
+div.login div.form
+{
+	padding-left:300px;
+	padding-top:50px;
+}
+div.login div.form h3
 {
 	margin-bottom:20px;
 }
-div.login table
+div.login div.form table
 {
 	border-collapse: collapse;
 }
-div.login table td
+div.login div.form table td
 {
 	padding-bottom:10px;
 	padding-right:10px;
 }
-div.login table td.submit
+div.login div.form table td.submit
 {
 	text-align:right;
 }
-div.login table td a.forgot
+div.login div.form table td a.forgot
 {
 	float:left;
 }
-div.login table td a.register
+div.login div.form table td a.register
 {
 	float:right;
 }
-div.login table td input[type=text],
-div.login table td input[type=password]
+div.login div.form table td input[type=text],
+div.login div.form table td input[type=password]
 {
 	width:200px;
 }

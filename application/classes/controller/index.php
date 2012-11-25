@@ -61,6 +61,7 @@ class Controller_Index extends Controller
 		$result['templates']['profile'] = View::factory('profile')->__toString();
 		$result['templates']['forgotPassword'] = View::factory('forgotPassword')->__toString();
 		$result['templates']['feedback'] = View::factory('feedback')->__toString();
+		$result['templates']['about'] = View::factory('about')->__toString();
 		
 		$result['templates']['controlPanel/translate'] = View::factory('controlPanel/translate')->__toString();
 		

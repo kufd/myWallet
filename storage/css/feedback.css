@@ -5,8 +5,8 @@ div.feedback
 
 div.feedback div.button
 {
-	position: absolute;
-	top:300px;
+	position: fixed;
+	top:250px;
 	right:0px;
 }
 div.feedback div.button div.box

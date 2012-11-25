@@ -59,6 +59,7 @@ core.initApplication = function()
 	spendings.setTemplate(db.template('spendings'));
 	profile.setTemplate(db.template('profile'));
 	feedback.setTemplate(db.template('feedback'));
+	about.setTemplate(db.template('about'));
 	
 	controlPanel.translate.setTemplate(db.template('controlPanel/translate'));
 	
