@@ -60,7 +60,10 @@ class Notifier
 	{
 $message = __(
 "Якщо ви отримали це повідомлення, але не користувались процедурою відновлення поролю то проігноруйте його.
- 
+
+УВАГА!
+ПРИ ВИКОРИСТАННІ ПРОЦЕДУРИ ВІДНОВЛЕННЯ ПАРОЛЮ БУДЕ ВТРАЧЕНА ЗАШИФРОВАНА ІНФОРМАЦІЯ!
+
 Для того щоб отримати пароль перейдіть за вказаною адресою:
 :url
 
@@ -101,5 +104,14 @@ $message = __(
 		$message .= $params['feedback'];
 		
 		self::getInstance()->_send('Відгук', $message, $to);
+	}
+	
+	/**
+	 * @param string $to
+	 * @param array $params
+	 */
+	public static function sendError($message)
+	{
+		self::getInstance()->_send('ERROR', $message, self::EMAIL_SUPPORT);
 	}
 }

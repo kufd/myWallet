@@ -5,6 +5,9 @@ class Controller_ForgotPassword extends Controller
 	
 	public function action_generate()
 	{
+		$this->addCss('/storage/css/main.css');
+		$this->addCss('/storage/css/forgotPassword/generate.css');
+		
 		$isPasswordSent = false;
 
 		$hash = Model_ForgotPasswordHash::getByHash($this->request->param('hash'));
@@ -14,7 +17,7 @@ class Controller_ForgotPassword extends Controller
 			try
 			{
 				$user = new Model_User($hash->userId);
-				$password = $user->setGeneratedPassword();
+				//$password = $user->setGeneratedPassword();
 				
 				//sending notify
 				Notifier::sendForgotPasswordNewPassword(
@@ -30,7 +33,14 @@ class Controller_ForgotPassword extends Controller
 			}
 		}
 		
-		$this->response->body(View::factory('forgotPassword/generate')->bind('isPasswordSent', $isPasswordSent));
+		$this->response->body(
+			View::factory('index')
+			->set('content',
+				View::factory('forgotPassword/generate')
+				->bind('isPasswordSent', $isPasswordSent)
+			)
+			->set('title', __('Мій гаманець - відновлення паролю'))
+		);
 	}
 	
 	public function action_sendMessage()

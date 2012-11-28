@@ -9,7 +9,12 @@ feedback.showForm = function()
 			[ 
 				{
 	               	text: __("Надіслати"),
-	               	click: function() { feedback.send(); $(this).dialog("destroy"); }
+	               	click: function() { 
+	               		if(feedback.send()) 
+	               		{
+	               			$(this).dialog("destroy"); 
+	               		}
+	               	}
 				},
 			 	{
 			 		text: __("Відмінити"),
@@ -27,6 +32,8 @@ feedback.showForm = function()
  */
 feedback.send = function()
 {
+	var result = false;
+	
 	var params = new Object();
 	params['name'] = $('div.formFeedback input[name=name]').val();
 	params['email'] = $('div.formFeedback input[name=email]').val();
@@ -40,11 +47,14 @@ feedback.send = function()
 			{
 				if(!core.ajaxErrors(data))
 				{
+					result = true;
 					$.jboxmessage(__('Відгук надіслано.'), '', 'top');
 				}
 			}
 		}
 	);
+	
+	return result;
 }
 
 feedback.event('div.button', 'click', feedback.showForm);

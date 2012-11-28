@@ -77,7 +77,7 @@ Class Model_User extends Model_A1_User_ORM
 		
 		try 
 		{
-			if(isset($params['newPassword']))
+			if(!empty($params['newPassword']) && !empty($params['password']))
 			{
 				Model_Spending::updateEncriptionKey($this->id, $params['password'], $params['newPassword']);
 			}
@@ -94,6 +94,8 @@ Class Model_User extends Model_A1_User_ORM
 		catch (Exception $e)
 		{
      		$this->_db->rollback();
+     		
+     		throw new Exception($e->getMessage());
  		}
 	}
 	

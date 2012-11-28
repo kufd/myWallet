@@ -115,7 +115,7 @@ Class Model_Spending extends ORM
 			$key=$v->id."_";
 			$result[$key] = $v->as_array();
 			$result[$key]['editable'] = true;
-			$result[$key]['amount'] = $result[$key]['amountDecrypted'];
+			$result[$key]['amount'] = $result[$key]['amountDecrypted'] ? $result[$key]['amountDecrypted'] : '0.00';
 			
 			//if group by spending
 			isset($result[$key]['amountTotalBySpending']) && ($result[$key]['amount'] = $result[$key]['amountTotalBySpending']) && 

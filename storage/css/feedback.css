@@ -31,6 +31,8 @@ div.feedback div.button div.box div
 	cursor:pointer;
 	position:relative;
 	left:-15px;
+	border:1px solid #5DC784;
+	border-radius:5px;
 }
 
 div.formFeedback

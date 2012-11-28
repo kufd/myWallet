@@ -45,7 +45,55 @@ class Controller_Index extends Controller
 	
 	public function action_index()
 	{
-		$this->response->body(View::factory('index'));
+		$this->addCss('/storage/css/main.css');
+		$this->addCss('/storage/css/jquery.ajaxLoader.css');
+		$this->addCss('/storage/css/jquery.jboxmessage.css');
+		$this->addCss('/storage/css/register.css');
+		$this->addCss('/storage/css/forgotPassword.css');
+		$this->addCss('/storage/css/login.css');
+		$this->addCss('/storage/css/profile.css');
+		$this->addCss('/storage/css/wallet.css');
+		$this->addCss('/storage/css/feedback.css');
+		$this->addCss('/storage/css/about.css');
+		$this->addCss('/storage/css/formAddSpending.css');
+		$this->addCss('/storage/css/controlPanel/translate.css');
+		$this->addCss('/storage/css/jquery.ui/custom-theme/jquery-ui-1.9.1.custom.min.css');
+		$this->addCss('/storage/css/jquery.simplePagination.css');
+		
+		$this->addJs('/storage/js/jquery-1.8.2.min.js');
+		$this->addJs('/storage/js/jquery.ui/jquery-ui-1.9.1.custom.min.js');
+		$this->addJs('/storage/js/jquery.ui/jquery.ui.datepicker-ru.js');
+		$this->addJs('/storage/js/jquery.ui/jquery.ui.datepicker-ua.js');
+		$this->addJs('/storage/js/jquery.ui/jquery.ui.datepicker-en-us.js');
+		$this->addJs('/storage/js/jquery.ajaxLoader.js');
+		$this->addJs('/storage/js/jquery.jboxmessage.js');
+		$this->addJs('/storage/js/jquery.shadow.js');
+		$this->addJs('/storage/js/jquery.simplePagination.js');
+		$this->addJs('/storage/js/template/template.js');
+		$this->addJs('/storage/js/core.js');
+		$this->addJs('/storage/js/db.js');
+		$this->addJs('/storage/js/user.js');
+		
+		$this->addJs('/storage/js/templates/controlPanel.js');
+		$this->addJs('/storage/js/templates/controlPanel/translate.js');
+		$this->addJs('/storage/js/templates/register.js');
+		$this->addJs('/storage/js/templates/forgotPassword.js');
+		$this->addJs('/storage/js/templates/about.js');
+		$this->addJs('/storage/js/templates/login.js');
+		$this->addJs('/storage/js/templates/formAddSpending.js');
+		$this->addJs('/storage/js/templates/profile.js');
+		$this->addJs('/storage/js/templates/spendings.js');
+		$this->addJs('/storage/js/templates/wallet.js');
+		$this->addJs('/storage/js/templates/feedback.js');
+		$this->addJs('/storage/js/templates/main.js');
+		
+		$this->addJs('/storage/js/main.js');
+		
+		$this->response->body(
+			View::factory('index')
+			->set('content', '')
+			->set('title', __('Мій гаманець'))
+		);
 	}
 	
 	public function action_export()
