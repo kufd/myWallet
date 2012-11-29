@@ -209,5 +209,21 @@ Route::set('controlPanel/removePhrase', 'controlPanel/removePhrase')
 		'controller' => 'controlPanel',
 		'action'     => 'removePhrase',
 	));
-	
+
+
+Route::set('error/404', 'error/404')
+	->defaults(array(
+		'controller' => 'error',
+		'action'     => '404',
+	));
+Route::set('error/500', 'error/500')
+	->defaults(array(
+		'controller' => 'error',
+		'action'     => '500',
+	));
+Route::set('error/503', 'error/503')
+	->defaults(array(
+		'controller' => 'error',
+		'action'     => '503',
+	));	
 	
