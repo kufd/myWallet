@@ -45,7 +45,7 @@ class Controller_Index extends Controller
 	
 	public function action_index()
 	{
-		$this->daddCss('/storage/css/main.css');
+		$this->addCss('/storage/css/main.css');
 		$this->addCss('/storage/css/jquery.ajaxLoader.css');
 		$this->addCss('/storage/css/jquery.jboxmessage.css');
 		$this->addCss('/storage/css/register.css');
