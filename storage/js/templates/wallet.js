@@ -80,6 +80,12 @@ wallet.afterRender(function(){
 	});
 	
 	$("div.options button.addSpending", wallet.template()).button();
+	
+	//check checkboxes for grouping spendings
+	for (var field in db.groupBySpendings())
+	{
+		wallet.$('input[data-field='+field+']').attr('checked', 'checked');
+	}
 });
 
 wallet.preRender(function(){
