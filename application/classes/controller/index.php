@@ -13,12 +13,13 @@ class Controller_Index extends Controller
 		{
 			$result['topSpendingNames'] = Model_SpendingName::topNames(array('userId'=>A1::instance()->get_user()->id, 'limit'=>15));
 			
-			$result['profile']['id'] 			= A1::instance()->get_user()->id;
-			$result['profile']['login'] 		= A1::instance()->get_user()->login;
-			$result['profile']['name'] 			= A1::instance()->get_user()->name;
-			$result['profile']['email']	 		= A1::instance()->get_user()->email;
-			$result['profile']['lang'] 			= A1::instance()->get_user()->lang;
-			$result['profile']['currency'] 		= A1::instance()->get_user()->currency;
+			$result['profile']['id'] = A1::instance()->get_user()->id;
+			$result['profile']['login'] = A1::instance()->get_user()->login;
+			$result['profile']['name'] = A1::instance()->get_user()->name;
+			$result['profile']['email'] = A1::instance()->get_user()->email;
+			$result['profile']['lang'] = A1::instance()->get_user()->lang;
+			$result['profile']['currency'] = A1::instance()->get_user()->currency;
+			$result['profile']['useEncryption'] = A1::instance()->get_user()->useEncryption;
 			
 			$result['acl']['control panel']	= A1::instance()->get_user()->isAllowed('control panel');
 		}
@@ -182,6 +183,7 @@ class Controller_Index extends Controller
 			$params = $this->request->post('params');
 			$params['userId'] = A1::instance()->get_user()->id;
 			$params['password'] = A1::instance()->session()->get('password');
+			$params['useEncryption'] = A1::instance()->get_user()->useEncryption;
 			
 			Model_Spending::addSpending($params);
 		}

@@ -40,15 +40,17 @@ Class Model_Spending extends ORM
 		isset($params['spendingNameId']) && $spending->spendingNameId = $params['spendingNameId'];
 		if(isset($params['amount']))
 		{
-			if(!empty($params['password']))
+			if($params['useEncryption'] && !empty($params['password']))
 			{
 				$spending->amountEncrypted = DB::expr(
 					'AES_ENCRYPT("'.$params['amount'].'", "'.mysql_real_escape_string($params['password']).'")'
 				);
+				$spending->amount = 0;
 			}
 			else
 			{
 				$spending->amount = $params['amount'];
+				$spending->amountEncrypted = '';
 			}
 		}
 		$spending->save();
@@ -160,6 +162,43 @@ Class Model_Spending extends ORM
 		->set(array('amountEncrypted' => DB::expr('AES_ENCRYPT(AES_DECRYPT(`amountEncrypted`, "'.mysql_real_escape_string($oldPassword).'"), "'.mysql_real_escape_string($newPassword).'")')))
 		->where('userId', '=', $userId)
 		->execute();
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param integer $userId
+	 * @param string $password
+	 */
+	public static function encryptSpendings($userId, $password)
+	{ 
+		DB::update('spendings')
+		->set(array('amountEncrypted' => DB::expr('AES_ENCRYPT(amount, "'.mysql_real_escape_string($password).'")')))
+		->where('userId', '=', $userId)
+		->execute();
 		
+		DB::update('spendings')
+		->set(array('amount' => 0))
+		->where('userId', '=', $userId)
+		->execute();
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param integer $userId
+	 * @param string $password
+	 */
+	public static function decryptSpendings($userId, $password)
+	{ 
+		DB::update('spendings')
+		->set(array('amount' => DB::expr('AES_DECRYPT(`amountEncrypted`, "'.mysql_real_escape_string($password).'")')))
+		->where('userId', '=', $userId)
+		->execute();
+		
+		DB::update('spendings')
+		->set(array('amountEncrypted' => ''))
+		->where('userId', '=', $userId)
+		->execute();
 	}
 }

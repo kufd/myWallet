@@ -14,6 +14,7 @@ profile.saveProfile = function()
 	params['email'] = profile.$('input[name=email]').val();
 	params['lang'] = profile.$('select[name=lang]').val();
 	params['currency'] = profile.$('input[name=currency]').val();
+	params['useEncryption'] = profile.$('input[name=useEncryption]').attr('checked') ? '1' : '0';
 	
 	var reinitializeApplication = params['lang'] != db.profile('lang');
 		
@@ -45,6 +46,10 @@ profile.preRender(function(){
 
 profile.afterRender(function(){
 	profile.$('select[name=lang]').val(db.profile('lang'));
+	if(db.profile('useEncryption') == 1)
+	{
+		profile.$('input[name=useEncryption]').attr('checked', 'checked');
+	}
 });
 
 profile.event('table td.submit input', 'click', profile.saveProfile);

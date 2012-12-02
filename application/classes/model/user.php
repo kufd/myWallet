@@ -77,9 +77,27 @@ Class Model_User extends Model_A1_User_ORM
 		
 		try 
 		{
+			//update encryption
 			if(!empty($params['newPassword']) && !empty($params['password']))
 			{
 				Model_Spending::updateEncriptionKey($this->id, $params['password'], $params['newPassword']);
+			}
+			
+			//encrypt or decrypt spendings
+			if(isset($params['useEncryption']) 
+				&& $params['useEncryption'] != $this->useEncryption
+				&& !empty($params['password']))
+			{
+				$password = !empty($params['newPassword']) ? $params['newPassword'] : $params['password'];
+				
+				if($params['useEncryption'])
+				{
+					Model_Spending::encryptSpendings($this->id, $password);
+				}
+				else
+				{
+					Model_Spending::decryptSpendings($this->id, $password);
+				}
 			}
 		
 			isset($params['newPassword']) && $params['newPassword'] && $this->password = $params['newPassword'];
@@ -87,6 +105,7 @@ Class Model_User extends Model_A1_User_ORM
 			isset($params['email']) && $this->email = $params['email'];
 			isset($params['lang']) && $this->lang = $params['lang'];
 			isset($params['currency']) && $this->currency = $params['currency'];
+			isset($params['useEncryption']) && $this->useEncryption = $params['useEncryption'];
 			$this->save();
 		
 			$this->_db->commit();

@@ -33,6 +33,10 @@
 		<td><input type="text" name="currency" value="%%currency%%"/></td>
 	</tr>
 	<tr>
+		<td><?php echo __('Шифрувати дані'); ?></td>
+		<td><input type="checkbox" name="useEncryption" title="<?php echo __('При активації цієї опції будуть зашифровані цифри витрат. Але при втраті паролю, їх не можна буде відновити'); ?>"/></td>
+	</tr>
+	<tr>
 		<td class="pt-15"><?php echo __('Новий пароль'); ?></td>
 		<td class="pt-15"><input type="password" name="newPassword"/></td>
 	</tr>
