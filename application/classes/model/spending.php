@@ -62,18 +62,24 @@ Class Model_Spending extends ORM
 	public static function getList($params = array())
 	{
 		//if sorting by amount
-		if(isset($params['order']) && isset($params['group']) && $params['order']['field']=='amount')
+		
+		if(isset($params['order']) && $params['order']['field']=='amount')
 		{
-			if(in_array('spendingNameId', $params['group']))
+			$params['order']['field']='amountDecrypted';
+			
+			if(isset($params['group']))
 			{
-				$params['order']['field'] = 'amountTotalBySpending';
-			}
-			elseif(in_array('date', $params['group']))
-			{
-				$params['order']['field'] = 'amountTotalByDate';
+				if(in_array('spendingNameId', $params['group']))
+				{
+					$params['order']['field'] = 'amountTotalBySpending';
+				}
+				elseif(in_array('date', $params['group']))
+				{
+					$params['order']['field'] = 'amountTotalByDate';
+				}
 			}
 		}
-		
+
 		$spending = new self();
 
 		$spending->with('spendingName');
@@ -128,7 +134,7 @@ Class Model_Spending extends ORM
 			!($result[$key]['editable'] = false) && 
 			!isset($result[$key]['amountTotalBySpending']) && ($result[$key]['spendingName']['name']=$result[$key]['nameConcatByDate']);
 		}
-
+		
 		return $result;
 	}
 	
