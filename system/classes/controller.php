@@ -2,8 +2,7 @@
 
 abstract class Controller extends Kohana_Controller 
 {
-	private $_styles = array();
-	private $_scripts = array();
+	private $_jsCssCompressor = null;
 	
 	public function before()
 	{
@@ -12,13 +11,20 @@ abstract class Controller extends Kohana_Controller
 	
 	public function after()
 	{
-		$stylesAndScripts = "\n\n" . $this->_getStyles() . "\n\n" .$this->_getScripts() . "\n";
+		//insert styles and scripts
+		$styles = $this->_getStyles();
+		$scripts = $this->_getScripts();
 		
-		$body = (string)$this->response->body();
+		if($styles || $scripts)
+		{
+			$stylesAndScripts = "\n\n" . $styles . "\n\n" . $scripts . "\n";
 		
-		$body = str_replace('</head>', $stylesAndScripts.'</head>', $body);
+			$body = (string)$this->response->body();
 		
-		$this->response->body($body);
+			$body = str_replace('</head>', $stylesAndScripts.'</head>', $body);
+		
+			$this->response->body($body);
+		}
 	}
 	
 	/**
@@ -44,7 +50,7 @@ abstract class Controller extends Kohana_Controller
 	 */
 	public function addCss($src)
 	{
-		$this->_styles[$src] = $src;
+		$this->_getJsCssCompressor()->addCss($src);
 	}
 	
 	/**
@@ -52,12 +58,8 @@ abstract class Controller extends Kohana_Controller
 	 */
 	private function _getStyles()
 	{
-		$styles = '';
-		
-		foreach($this->_styles as $src)
-		{
-			$styles .= HTML::style($src)."\n";
-		}
+		$path = $this->_getJsCssCompressor()->getCss();
+		$styles = $path ? '<link type="text/css" href="'.$path.'" rel="stylesheet" />' : '';
 		
 		return $styles;
 	}
@@ -67,7 +69,7 @@ abstract class Controller extends Kohana_Controller
 	 */
 	public function addJs($src)
 	{
-		$this->_scripts[$src] = $src;
+		$this->_getJsCssCompressor()->addJs($src);
 	}
 	
 	/**
@@ -75,13 +77,22 @@ abstract class Controller extends Kohana_Controller
 	 */
 	private function _getScripts()
 	{
-		$scripts = '';
-		
-		foreach($this->_scripts as $src)
-		{
-			$scripts .= HTML::script($src)."\n";
-		}
+		$path = $this->_getJsCssCompressor()->getJs();
+		$scripts = $path ? '<script type="text/javascript" src="'.$path.'"></script>' : '';
 		
 		return $scripts;
+	}
+	
+	/**
+	 * @return JsCssCompressor
+	 */
+	private function _getJsCssCompressor()
+	{
+		if(is_null($this->_jsCssCompressor))
+		{
+			$this->_jsCssCompressor = new JsCssCompressor("/home/kufd/www/myWallet/", "storage/tmp/");
+		}
+		
+		return $this->_jsCssCompressor;
 	}
 }
