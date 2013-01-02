@@ -90,7 +90,7 @@ abstract class Controller extends Kohana_Controller
 	{
 		if(is_null($this->_jsCssCompressor))
 		{
-			$this->_jsCssCompressor = new JsCssCompressor("/home/kufd/www/myWallet/", "storage/tmp/");
+			$this->_jsCssCompressor = new JsCssCompressor(DOCROOT, "storage/tmp/");
 		}
 		
 		return $this->_jsCssCompressor;
