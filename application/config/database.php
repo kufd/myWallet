@@ -20,7 +20,7 @@ return array
 			 */
 			'hostname'   => 'localhost',
 			'database'   => 'myWallet',
-			'username'   => 'mywallet',
+			'username'   => 'myWallet',
 			'password'   => 'xK7YfmKKTXEzpfJ6',
 			'persistent' => FALSE,
 		),

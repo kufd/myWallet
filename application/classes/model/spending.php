@@ -133,6 +133,8 @@ Class Model_Spending extends ORM
 			isset($result[$key]['amountTotalByDate']) && ($result[$key]['amount'] = $result[$key]['amountTotalByDate']) &&
 			!($result[$key]['editable'] = false) && 
 			!isset($result[$key]['amountTotalBySpending']) && ($result[$key]['spendingName']['name']=$result[$key]['nameConcatByDate']);
+			
+			unset($result[$key]['amountEncrypted']);
 		}
 		
 		return $result;
